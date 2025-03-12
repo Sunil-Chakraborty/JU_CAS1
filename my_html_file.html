@@ -1,0 +1,1696 @@
+
+
+
+<head>
+	
+	
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<style>
+        @page {
+            size: a4 portrait;
+			
+			background-image: url(draft.jpg);
+			
+            @frame header_frame {           /* Static Frame */
+                -pdf-frame-content: header_content;
+                left: 50pt; width: 512pt; top: 10pt; height: 950pt;
+				
+            }
+			
+            @frame content_frame {          /* Content Frame */
+                left: 30pt; width: 512pt; top: 100pt; height: 660pt;
+				
+								
+            }
+			
+            
+			@frame footer_frame {           
+            -pdf-frame-content: footer_content;
+            left: 50pt; width: 470pt; top: 770pt; height: 40pt;
+            display: block;
+           
+            
+			}
+		
+			
+        }
+		
+		@page jrnl_pub{
+			size:landscape;			
+			@frame footer_frame {           
+            -pdf-frame-content: footer_content;
+            left: 60pt; width: 470pt; top: 770pt; height: 40pt;
+            display: block;
+			}
+			
+			margin: .8cm;
+			
+		}
+		@page api_summ{
+			size: a4 portrait;
+            @frame header_frame {           /* Static Frame */
+                -pdf-frame-content: header_content;
+                left: 50pt; width: 512pt; top: 10pt; height: 950pt;
+				
+            }
+			
+            @frame content_frame {          /* Content Frame */
+                left: 30pt; width: 512pt; top: 70pt; height: 660pt;				
+            }
+			
+            
+			@frame footer_frame {           
+            -pdf-frame-content: footer_content;
+            left: 50pt; width: 470pt; top: 770pt; height: 40pt;
+            display: block;
+			}
+			
+		}
+		
+		@page fwd_link{
+			size: a4 portrait;
+           
+			
+            @frame content_frame {          /* Content Frame */
+                left: 30pt; width: 512pt; top: 70pt; height: 660pt;				
+            }
+			
+            
+			@frame footer_frame {           
+            -pdf-frame-content: footer_content;
+            left: 50pt; width: 470pt; top: 770pt; height: 40pt;
+            display: block;
+			}
+			margin: 1cm;	
+		}
+		
+		
+        th, td.box{
+            text-align:left;
+            vertical-align: middle;
+            font-size:12px;			
+            text-decoration:none;			
+			width: auto;
+        }
+		
+        .wd{
+            width: 10%;
+        }
+
+        .alert{            
+            color: red;
+        }
+        th.sub{
+            width:30%;
+        }
+        th.marks, th.year, td.marks, td.year{
+            width:11%;
+            text-align:center;
+        }
+
+        .content-loader tr td {
+            white-space: nowrap;
+        }
+        .centered {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+			
+		.no-display{
+			display:none;
+		}
+		.spinner-container {
+		  position: fixed;
+		  top: 0;
+		  bottom: 0;
+		  left: 0;
+		  right: 0;
+		  z-index: -1;
+		  display: flex;
+		  flex-direction: column;
+		  justify-content: center;
+		  align-items: center;
+		}
+
+		.spinner-container .fa {
+		  font-size: 60px;
+		}
+		
+    </style> 
+    
+    
+
+
+    </head>
+    
+    <body>
+		
+        <!-- Content for Static Frame 'header_frame' -->
+        <div id="header_content" >
+		
+           
+            <!-- <img src="http://172.24.160.51:8000/static/images/ju_logo.png" style="width:60px;text-align:center;">-->
+			<img src="http://localhost:8000/static/images/ju_logo.png" style="width:60px;text-align:center;">
+			
+            <h2 style="text-align:center">JADAVPUR UNIVERSITY
+               <br> KOLKATA - 700032               
+               <br> 
+            </h2>
+            <br>
+            
+        </div>
+		
+		<h3 style="text-align:center;padding-top:7px;letter-spacing:1px;" >GO No.1343-Edn(U)/1U-41/11(Pt) dt.07.12.2017
+         <br>EC Res. No.   
+        </h3>
+        <h2 style="text-align:center;padding-top:7px;" >APPLICATION FORM FOR PROMOTION OF UNIVERSITY TEACHERS UNDER CAREER ADVANCEMENT SCHEME
+            
+        </h2>
+    
+        <!-- Content for Static Frame 'footer_frame' -->
+        <div id="footer_content">(c) - page <pdf:pagenumber>
+            of <pdf:pagecount>
+        </div>
+        
+        <!-- HTML Content -->
+
+        <h1 style="margin-left:190px">From :
+            <br>Stage/Designation :&nbsp&nbsp<span style="font-weight:400">Assistant Prof. (Stage 3)</span>
+        </h1>
+        
+        <h1 style="margin-left:190px">To :
+            <br>Stage/Designation :&nbsp&nbsp<span style="font-weight:400">Associate Prof. (Stage 4)</span>
+        </h1>
+        
+        <h2 style="text-align:center" >(Assistant Professor Stage 1 to Stage 2, Stage 2 to Stage 3),Assistant Professor (Stage 3) to Associate Professor
+            <br> (Stage 4), Associate Professor (Stage 4) to Professor/equivalent cadres (Stage 5). 
+          
+        </h2>
+        
+        <div style="background-color: blue;color:white;">
+        <h2 style="padding-top:7px;font-size:15px">PART A : GENERAL INFORMATION AND ACADEMIC BACKGROUND</h2>
+        </div>
+        <table  width="100%" border="1" cellspacing="0" cellpadding="5">
+			
+            <tr>
+                <th class="box">1. Employee Id</th>
+                <td class="box">125896</td>
+            </tr>
+			<tr>
+                <th class="box">2. Full Name</th>
+                <td class="box">IQAC JU</td>
+            </tr>
+            <tr>
+                <th class="box">3. Father's Name / Mother's Name</th>
+                <td class="box">ASF XYZ</td>
+            </tr>
+            <tr>
+                <th class="box">4. Date of Birth</th>
+                <td class="box">16-09-1979</td>
+            </tr>
+            <tr>
+                <th class="box">5. Category</th>
+                <td class="box">ST
+				
+					
+						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a class="box" href="https://drive.google.com/file/d/1aOgi_thMtFdSenKr0yv_8CTlS6a6mIvm/view?usp=sharing" target="_top">Doc Link</a>
+						
+					
+				</td>
+                
+            </tr>
+			<tr>
+				<th class="box">6. Differently Abled</th>
+				<td class="box" style="font-weight:bold;">
+					
+						No
+						
+						
+				</td>
+			</tr>
+            <tr>
+                <th class="box">7. Department / School</th>
+                <td class="box">BENGALI</td>
+            </tr>
+            <tr>
+                <th class="box">8. Current Designation</th>
+                <td class="box">Assistant Professor</td>
+            </tr>
+            <tr>
+                <th class="box">9. Academic Grade Pay (AGP) / Level</th>
+                <td class="box">8000/12</td>
+            </tr>
+			<tr>
+                <th class="box">10. Highest Qualification</th>
+                <td class="box">Ph.D</td>
+            </tr>
+           <tr>
+                <th class="box">11. Date of last promotion , if any</th>
+                <td class="box">05-01-2015
+				
+						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a class="box" href="https://drive.google.com/file/d/1PWc7QQo1LdWMyak0bBznFs4t0IbGIuP0/view?usp=sharing" target="_top">Doc Link</a>
+				
+				</td>	
+            </tr>
+            <tr>
+                <th class="box">12. Date of eligibility for promotion</th>
+                <td class="box">15-05-2020</td>
+            </tr>
+			<tr>
+				<th>13. Assessment Period (in years)</th>
+				<td class="box">5</td>				
+            <tr>
+                <th class="box">14. Address for correspondence</th>
+                <td class="box"><p>DEPARTMENT OF PHARMACEUTICAL TECHNOLOGY <br>JADAVPUR UNIVERSITY, KOLKATA 700032</p></td>
+            </tr>
+            <tr>
+                <th class="box">15. Permanent Address</th>
+                <td class="box"><p>H. NO. 480, BELOW MEZHIIR HIGHER SECONDARY <br>SCHOOL, LOWER MIDLAND, KOHIMA, NAGALAND - 797001</p></td>
+            </tr>
+            <tr>
+                <th class="box">16. Mobile No.</th>
+                <td class="box">8981099151</td>
+            </tr>
+            <tr>
+                <th class="box">17. E-mail Id</th>
+                <td class="box">iqac.ju1@jadavpuruniversity.in</td>
+            </tr>
+        </table>
+
+        <div>
+            <pdf:nextpage /> 
+        </div> 
+        
+        <br>
+        <div style="background-color: blue;color:white;font-weight:bold;">
+            <h2 style="padding-top:7px;font-size:15px">Part B. Academic Qualifications :</h2>
+        </div>
+
+        <h1 style="text-align:left;font-size:15px"> A. Last Academic Qualifications (From graduation onwards excluding research degree(s)):
+        </h1>
+
+
+        <table repeat="1" width="100%" border="1" cellspacing="0" cellpadding="5">
+           
+            <tr>
+                <th class="box">Degree/<BR>Diploma</th>
+                <th class="board">Name of the<BR>Board/<BR>University</th>
+                <th class="year">Year of <BR>Passing</th>
+                <th class="marks">(%)of<BR>Marks<BR>Obtained</th>	
+                <th class="box">Division/<BR>Class/Grade</th>	
+                <th class="sub">Subject(s)</th>
+                <th class="box wd">Doc Link</th>
+            </tr>
+            
+            
+			  
+                 <tr>
+                    <td class="box">B.TECH</td>
+                    
+                        <td class="box">DIBRUGARH
+UNIVERSITY</td>
+                    
+                    
+                        <td class="year box">2002</td>
+                    
+                    <td class="marks box">67.90%</td>
+                    <td class="box">1ST CLASS
+WITH
+HONOURS</td>
+                    <td class="box">PHARMACEUTICS, PHARMACOGNOSY, PHARMACOLOGY, MICROBIOLOGY,
+BIOCHEMISTRY,
+PHARMACEUTICAL
+CHEMISTRY,
+PHARMACEUTICAL
+ENNGINEERING</td>
+					
+					
+                        <td ><a class="box" href="http://www.jaduniv.edu.in/" target="_blank">View</a></td>                        
+                    
+					
+                </tr>
+				
+                
+             
+            </table>
+            <br>
+            <h1 style="text-align:left;font-size:15px"> B.Research Degrees:
+            </h1>
+
+            <table repeat="1" width="100%" border="1" cellspacing="0" cellpadding="5">
+     
+                <tr>
+                    <th class="box">Degree</th>
+                    <th class="box">Title of Dissertion/Thesis</th>
+                    <th class="box">Date of Award</th>
+                    <th class="box">Name of the University</th>
+                    <th class="box wd">Doc Link</th>
+                </tr>
+                
+      
+            
+				
+                 <tr>
+                    <td class="box">PH. D. / D. PHIL.</td>
+                    <td class="box">DEVELOPMENT AND EVALUATION OF MUCOADHESIVE NASAL DRUG DELIVERY SYSTEMS OF OXYTOCIN</td>    
+                    <td class="box">08-08-2008</td>
+                    <td class="box">JADAVPUR UNIVERSITY</td>                  
+
+                    
+                        <td ><a class="box" href="https://www.researchgate.net/publication/316618771_Community_Pharmacists%27_Medication_Knowledge_A_Nation-wide_Study_in_Palestine" target="_blank">View</a></td>
+                        
+                    
+                    
+                </tr> 
+						
+             
+
+            </table> 
+
+            <div>
+                <pdf:nextpage /> 
+            </div>
+
+            
+            <br>
+            
+
+            <div style="background-color: blue;color:white;">
+                <h2 style="padding-top:7px;font-size:15px">Part C. Professional Experience :</h2>
+            </div>
+    
+            <h1 style="text-align:left;font-size:15px"> A.Position(s) held Prior to Joining this University, if any:
+            </h1>
+
+            <table repeat="1" class="content-loader" width="100%" border="1" cellspacing="0" cellpadding="5">
+     
+                <tr>
+                    <th class="box">Desig-<br>nation</th>
+                    <th class="box">Name of Employer</th>
+                    <th class="box marks">Date of Joining</th>
+                    <th class="box marks">Date of Leaving</th>
+                    <th class="box marks">Gross Salary</th>                    
+                    <th class="box">Reason for Leaving</th>
+					<th class="box wd">Doc Link</th>					
+                    
+                </tr>
+                
+      
+            
+				
+                 <tr>
+                    <td class="box marks">dgsagd fsfsafs</td>
+                    <td class="box">sgsaga</td>    
+                    <td class="box marks">01-05-2023</td>
+                    <td class="box marks">04-05-2023</td>
+                    <td class="box marks">30000</td>    
+                    <td class="box">fsafsafsa</td>
+					
+                        <td ><a class="box" href="http://www.jaduniv.edu.in/" target="_blank">View</a></td>                        
+                    					
+                 </tr>  
+						
+             
+
+            </table> 
+
+            <h1 style="text-align:left;font-size:15px"> B.Posts held after Appointment at the University :
+            </h1>
+
+            <table repeat="1" class="content-loader" width="100%" border="1" cellspacing="0" cellpadding="5">
+     
+                <tr>
+                    <th class="box">Designation</th>
+                    <th class="box">Department/School</th>
+                    <th class="box">From date</th>
+                    <th class="box">To date</th>
+                    <th class="box">Pay Scale</th>
+                    <th class="box">AGP/Level</th>
+					<th class="box wd">Doc Link</th>
+                </tr>
+                
+      
+            
+				
+                 <tr>
+                    <td class="box">Assistant Professor - Stage 2</td>
+                    <td class="box">COMPARATIVE LITERATURE</td>    
+                    <td class="box marks">08-02-2024</td>
+                    <td class="box marks">10-04-2024</td>
+                    <td class="box marks">15600-39100</td>    
+                    <td class="box marks">6000/10</td>
+					
+                        <td ><a class="box" href="https://drive.google.com/file/d/1tvxXU9F6zZdYh7cbg1_VEpA--5xXNYLk/view" target="_blank">View</a></td>                        
+                    							
+                 </tr>
+				 
+            
+				
+                 <tr>
+                    <td class="box">Assistant Professor - Stage 3</td>
+                    <td class="box">PHYSICS</td>    
+                    <td class="box marks">14-03-2024</td>
+                    <td class="box marks">12-04-2024</td>
+                    <td class="box marks">15600-39100</td>    
+                    <td class="box marks">7000/11</td>
+					
+                        <td ><a class="box" href="https://drive.google.com/file/d/1tvxXU9F6zZdYh7cbg1_VEpA--5xXNYLk/view" target="_blank">View</a></td>                        
+                    							
+                 </tr>
+				 
+            
+				
+                 <tr>
+                    <td class="box">Assistant Professor - Stage 1</td>
+                    <td class="box">ARCHITECTURE</td>    
+                    <td class="box marks">07-03-2024</td>
+                    <td class="box marks">18-04-2024</td>
+                    <td class="box marks">15600-39100</td>    
+                    <td class="box marks">7000/11</td>
+					
+                        <td ><a class="box" href="https://drive.google.com/file/d/1tvxXU9F6zZdYh7cbg1_VEpA--5xXNYLk/view" target="_blank">View</a></td>                        
+                    							
+                 </tr>
+				 
+             
+
+            </table> 
+
+            
+            <div>
+                <pdf:nextpage /> 
+            </div>
+
+            
+            <br>
+
+            <div style="background-color: blue;color:white;">
+                <h2 style="padding-top:7px;font-size:15px">Part D. Teaching Experience :</h2>
+            </div>
+    
+            <h1 style="text-align:left;font-size:15px"> A.Period of Teaching and / or Research Experience :
+            </h1>
+
+            <table repeat="1" class="content-loader" width="100%" border="1" cellspacing="0" cellpadding="5">
+     
+                <tr>
+                    <th class="box">Level of Classes</th>
+                    <th class="box">No. of Years</th>
+                </tr>
+                <tr>
+                    <th class="box">PG Classes</th>
+                    
+                    <td class="box">12</td>
+                    
+                </tr>
+                <tr>
+                    <th class="box">UG Classes</th>
+                    
+                    <td class="box">12</td>
+                    
+                </tr>
+				<tr>
+                    <th class="box">Post-doctoral Research</th>
+                    
+                    <td class="box">1</td>
+                    
+                </tr>
+				<tr>
+                    <th class="box">Doctoral Research</th>
+                    
+                    <td class="box">5</td>
+                    
+                </tr>
+				
+				
+                
+            </table> 
+
+            <h1 style="text-align:left;font-size:15px"> B.Field(s) of Specialisation under the Subject/Discipline :
+            </h1>
+
+            <table repeat="1" class="content-loader" width="100%" border="1" cellspacing="0" cellpadding="5">
+                
+                <tr>
+                   
+                    
+                    <td class="box"><p>(A) PHARMACEUTICAL JURISPRUDENCE <br>(B) PHARMACEUTICS <br>(C) CLINICAL PHARMACY <br>(D) INDUSTRIAL PHARMACY <br>(E) PHARMACEUTICAL TECHNOLOGY</p></td>
+                    
+
+                </tr>
+          
+            </table> 
+
+             
+            <div>
+                <pdf:nextpage /> 
+            </div>
+
+
+            
+            <br>
+
+            <div style="background-color: blue;color:white;">
+                <h2 style="padding-top:7px;font-size:15px">Part E. Orientation / Induction Program(s) or Refresher / Short-term Course(s):</h2>
+            </div>
+    
+            <h1 style="text-align:left;font-size:15px"> Program(s) / Course(s) Attended :
+            </h1>
+
+            <table repeat="1" class="content-loader" width="100%" border="1" cellspacing="0" cellpadding="5">
+     
+                 
+                <tr>
+                    <th VALIGN=TOP class="box">Title of the Course</th>
+                    <th VALIGN=TOP class="box">Place</th>
+                    <th VALIGN=TOP class="box">Duration (No. of Weeks)</th>
+                    <th VALIGN=TOP class="box" style="text-align: center;">Period :<br> From Date- To Date</th>
+                    <th VALIGN=TOP class="box wd">Doc Link</th>
+                    
+                </tr>
+				
+										
+						<tr>
+							<td class="box"><p>REFRESHERS COURSE ENTITLED, “PROGRESS IN PHARMACEUTICAL RESEARCH AND <br>TECHNOLOGY” OF QIP UNDER THE AUSPICES A.I.C.T.E., NEW DELHI</p></td>
+							<td class="box">JADAVPUR UNIVERSITY</td>    
+							<td class="box">4 WEEKS</td>
+							<td class="box"><p>18TH AUGUST 2008 TO 13TH SEPTEMBER 2008</p></td>
+							
+								<td ><a class="box" href="https://www.researchgate.net/publication/316618771_Community_Pharmacists%27_Medication_Knowledge_A_Nation-wide_Study_in_Palestine" target="_blank">View</a></td>                        
+								
+						</tr>					
+						
+				
+            </table>
+			
+			<div>
+                <pdf:nextpage /> 
+            </div>
+			
+            <br>
+
+            <div style="background-color: blue;color:white;">
+                <h2 style="padding-top:7px;font-size:15px">API SCORE CALCULATION MATRIX</h2>
+            </div>
+    
+            <h1 style="text-align:left;font-size:15px"> API CATEGORY : I. TEACHING, LEARNING AND EVALUATION RELATED ACTIVITIES
+            </h1>
+
+            <table repeat="1" class="content-loader" width="100%" border="1" cellspacing="0" cellpadding="5">
+				<tr>
+					<th style="width:7%;">Sl.No.</th>
+					<th>Nature of Activity</th>
+					<th style="text-align:center;width:12%;">Max Marks</th>
+					<th style="text-align:center;">Hours spent per<br>academic year</th>
+					<th style="display:none;width:15%;">Actual score</th>
+					<th style="text-align:center;width:15%;">Self Appraisal Score</th> 
+						
+					<th>Doc.Link(if any)</th>
+					
+				</tr> 
+				<tr>
+					<td>1.</td>
+					<td>Direct Teaching<br>(self declaration)</td>
+					<td style="text-align:center;">60</td>
+					<td style="text-align:center;">700</td>
+					<td style="text-align:center;">60.00</td>
+					
+					
+					
+						<td><a name="url_dt"  id="id_url_dt" href="https://docs.google.com/document/d/1XkQgnhbp9U7qYg6KjyEyodLsOUmzC0tc/edit?usp=share_link&amp;ouid=101528526257081981563&amp;rtpof=true&amp;sd=true" target="_blank"  style="max-width:100%;" class="btn btn-primary ">View</a></td>							
+					
+				</tr>
+				<tr>
+					<td>2.</td>
+					<td>Examination duties<br>(question paper setting,<br> Invigilation, evaluation of <br> answer scripts etc.)<br> (self declaration)</td>
+					<td style="text-align:center;">20</td>
+					<td style="text-align:center;">250</td>
+					<td style="text-align:center;">20.00</td>
+					
+					
+					
+						<td><a name="url_ed"  id="id_url_ed" href="https://docs.google.com/document/d/1XkQgnhbp9U7qYg6KjyEyodLsOUmzC0tc/edit?usp=share_link&amp;ouid=101528526257081981563&amp;rtpof=true&amp;sd=true" target="_blank"  style="max-width:100%;" class="btn btn-primary ">View</a></td>							
+					
+				</tr>
+				<tr>
+					<td>3.</td>
+					<td>Innovative Teaching-<br>learning methodologies,
+						<br> updating of subject <br> contents/courses, mentoring etc.
+						<br>(self declaration)
+					</td>
+					<td style="text-align:center;">15</td>
+					<td style="text-align:center;">250</td>
+					<td style="text-align:center;">15.00</td>
+					
+					
+					
+						<td><a name="url_it"  id="id_url_it" href="https://docs.google.com/document/d/1XkQgnhbp9U7qYg6KjyEyodLsOUmzC0tc/edit?usp=share_link&amp;ouid=101528526257081981563&amp;rtpof=true&amp;sd=true" target="_blank"  style="max-width:100%;" class="btn btn-primary ">View</a></td>							
+					
+				</tr>
+				<tr>
+					<td style="font-weight:bold;">Total</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td style="text-align:center;font-weight:bold;">95.00</td>
+				</tr>	
+			</table>
+			
+			<div>
+			   <pdf:nextpage /> 
+            </div>
+			
+            <br>			
+			<div style="background-color: blue;color:white;">
+                <h2 style="padding-top:7px;font-size:15px">API SCORE CALCULATION MATRIX</h2>
+            </div>
+    
+            <h1 style="text-align:left;font-size:15px">CATEGORY II: PROFESSIONAL DEVELOPMENT, CO-CURRICULAR AND EXTENSION ACTIVITIES
+            </h1>
+			<table repeat="1" class="content-loader" width="100%" border="1" cellspacing="0" cellpadding="5">
+			<tr>
+				<th style="width:30%;">Nature of Activity</th>
+				<th>Max Marks</th>
+				<th style="text-align:center;">Hours spent per<br>academic year</th>
+				<th style="text-align:center;display:none">Actual score</th>
+				<th style="text-align:center;">Self Appraisal Score</th>
+						
+				
+				<th style="text-align:center;">Doc.Link <br>(if any)</th>
+				
+			</tr>
+			<tr>
+				<td><textarea>a). Student related co-curricular, extension and field based activities.
+				(i) Discipline related co-curricular activities (e.g.remedial classes,career counseling,study visit,student seminar and other events.)
+				(ii) Other co-curricular activities(Cultural, Sports, NSS, NCC etc.).Extension and dissemination activities (public /popular lectures/talks/seminars etc.)
+				</textarea>		
+				</td>
+				<td style="text-align:center;">15</td>
+				<td style="text-align:center;">250</td>				
+				<td style="text-align:center;">15.00</td>
+				
+				
+				
+				
+				
+					<td style="text-align:center;"><a name="url_fba"  id="id_url_fba" href="https://docs.google.com/document/d/1XkQgnhbp9U7qYg6KjyEyodLsOUmzC0tc/edit?usp=share_link&amp;ouid=101528526257081981563&amp;rtpof=true&amp;sd=true" target="_blank"  style="max-width:97%;" class="btn btn-primary ">View</a></td>							
+				
+			</tr>
+			<tr>
+				<td><textarea>b). Contribution to corporate life and management of the department and institution through participation in academic and administrative committees and responsibilities.		
+							  i). Administrative responsibility (including as Dean / Principal / Chairperson / Convener / Teacher-in-charge/  similar other duties that require regular office hrs for  its discharge)		
+							 ii). Participation in Board of Studies, Academic and Administrative Committees
+								  (Self declaration)				
+				</textarea>		
+				</td>
+				<td style="text-align:center;">15</td>
+				<td style="text-align:center;">300</td>				
+				<td style="text-align:center;">15.00</td>
+				
+				
+				
+				
+				
+					<td style="text-align:center;"><a name="url_clm"  id="id_url_fba" href="https://docs.google.com/document/d/1XkQgnhbp9U7qYg6KjyEyodLsOUmzC0tc/edit?usp=share_link&amp;ouid=101528526257081981563&amp;rtpof=true&amp;sd=true" target="_blank"  style="max-width:97%;" class="btn btn-primary ">View</a></td>							
+				
+			</tr>
+			<tr>
+				<td><textarea>c.) Professional Development activities (such as participation in seminars, conferences, short term training courses, industrial experience, talks, lectures in refreshers/faculty development courses, dissemination and general articles and any other contribution			
+				</textarea>		
+				</td>
+				<td style="text-align:center;">15</td>
+				<td style="text-align:center;">150</td>				
+				<td style="text-align:center;">15.00</td>
+				
+				
+				
+				
+				
+					<td style="text-align:center;"><a name="url_pda"  id="id_url_pda" href="https://docs.google.com/document/d/1XkQgnhbp9U7qYg6KjyEyodLsOUmzC0tc/edit?usp=share_link&amp;ouid=101528526257081981563&amp;rtpof=true&amp;sd=true" target="_blank"  style="max-width:97%;" class="btn btn-primary ">View</a></td>							
+				
+			</tr>
+			<tr>
+					<td style="font-weight:bold;">Total</td>
+					<td></td>
+					<td></td>					
+					<td style="text-align:center;font-weight:bold;">45.00</td>
+			</tr>
+			</table>
+			<div>
+				<pdf:nexttemplate name="jrnl_pub"/> 
+                <pdf:nextpage /> 
+            </div>
+			<br>
+            
+            <br>
+			 <div style="background-color: blue;color:white;" width="93%">
+                <h2 style="padding-top:7px;font-size:15px">API SCORE CALCULATION MATRIX</h2>
+            </div>
+    
+            <h1 style="text-align:left;font-size:15px"> CATEGORY III: Research and Academic Contribution
+            </h1>
+			<h2 style="text-align:left;font-size:14px">III-A : Journal Publication</h2>
+			
+			<table repeat="1" class="content-loader" width="100%" border="1" cellspacing="0" cellpadding="5">
+			<tr> 
+				<th style="width:3%;">Sl.<br>No.</th>
+				<th style="width:4%;">Yr.of<br>Publ.</th>
+				<th style="width:20%;text-align:left;">Title of the Paper</th>
+				<th style="width:4.5%;text-align:center;">No.of<br>authors</th>
+				<th style="width:11.5%;text-align:left;">Role of Applicant</th>
+				<th style="width:6%;text-align:left;">No.of authors<br>in others<br>category</th>
+				<th style="width:8%;text-align:left;">Journal Name</th>
+				<th style="width:9%;text-align:left;">Volume (Issue),<br>pg no. from - to</th>
+				<th style="width:7%;text-align:left;">Journal Type</th>
+				<th style="width:4%;text-align:center;">Impact<br>Factor<br>(I.F)</th>
+				
+				<th style="width:4%;text-align:left;">I.F <br>Doc<br>link</th>
+				<th style="width:4%;text-align:left;">Jrnl.<br>Pub.<br>Link</th>
+				<th style="width:8%;text-align:center;">Self <br>Appraisal <br>Score</th>
+				
+						
+				
+				
+				
+			</tr>
+			</tr>
+
+			
+				
+					<tr>
+						<td style="display:none;"></td>             
+						<td>1</td>
+						<td style="text-align:center;">2023</td>               
+						<td><textarea rows="3" cols="40" wrap="hard" readonly>sdgdgd</textarea></td>
+						<td style="text-align:center;">4</td>
+						<td>Corresponding author / supervisor / mentor</td>
+						<td style="text-align:center;">0</td>
+
+						<td><textarea rows="3" cols="20" wrap="hard" readonly>dfsafa</textarea></td>
+						<td><textarea rows="5" cols="10" wrap="hard" readonly>fsafsafs</textarea></td>
+						<td>UGC Care List</td>
+						<td style="text-align:center;">3.841</td>
+						
+						
+							<td><a class="btn btn-secondary btn-lg" href='http://www.jaduniv.edu.in/' target=_blank>View</a></td>
+						                
+					  
+
+						
+							<td><a class="btn btn-secondary btn-lg" href='http://www.jaduniv.edu.in/' target=_blank>View</a></td>
+						
+						<td id="api_score" style="text-align:center;">30.25</td>
+					
+					
+							
+					</tr>
+				
+				
+			
+				
+					<tr>
+						<td style="display:none;"></td>             
+						<td>2</td>
+						<td style="text-align:center;">2021</td>               
+						<td><textarea rows="3" cols="40" wrap="hard" readonly>Operating Regimes of a Magnetic Split-flow Thin (SPLITT) Fractionation Microfluidic Device for Immunomagnetic Separation</textarea></td>
+						<td style="text-align:center;">1</td>
+						<td>First and Corresponding author</td>
+						<td style="text-align:center;">0</td>
+
+						<td><textarea rows="3" cols="20" wrap="hard" readonly>Microfluidics Nanofluidics</textarea></td>
+						<td><textarea rows="5" cols="10" wrap="hard" readonly>2, III</textarea></td>
+						<td>UGC Care List</td>
+						<td style="text-align:center;">5.525</td>
+						
+						
+							<td><a class="btn btn-secondary btn-lg" href='http://www.jaduniv.edu.in/' target=_blank>View</a></td>
+						                
+					  
+
+						
+							<td><a class="btn btn-secondary btn-lg" href='http://www.jaduniv.edu.in/' target=_blank>View</a></td>
+						
+						<td id="api_score" style="text-align:center;">45.00</td>
+					
+					
+							
+					</tr>
+				
+				
+			
+			<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>					
+					<td style="font-weight:bold;">Total</td>					
+					<td style="text-align:center;font-weight:bold;">75.25</td>
+					
+			</tr>
+			</table>
+			
+			<br>
+			
+			<table repeat="1">
+				<tr>
+					<td style="text-align:left;font-size:14px;font-weight:bold">III-B(i): Publications other than journal articles</td>
+				</tr>
+			</table>
+			
+			<table repeat="1" class="content-loader" width="100%" border="1" cellspacing="0" cellpadding="5">
+						
+						<tr>
+							
+							<th style="width:3%;">Sl.<br>No.</th>
+							<th style="width:4%;">Yr.of<br>Publ.</th>
+							<th style="width:14%;text-align:left;">Type of Publication</th>					
+							<th style="width:12%;text-align: left;">Title of <br> the Chapter/ Paper</th>
+							<th style="width:12%;text-align: left;">Title of <br> the Book/ Proceedings</th>
+							<th style="width:5%;text-align:center;">No.of<br>authors</th>
+							<th style="width:12%;text-align: left;">Name of <br> Publisher</th>
+							<th style="width:9%;text-align: left;">Status of Publisher</th>
+							<th style="width:9%;text-align: left;">ISBN/ISSN No</th>
+							<th style="width:4%;text-align:left;">Doc.<br> Link</th>
+							<th style="width:9%;text-align:center;">Self <br>Appraisal <br>Score</th>
+							
+								
+							
+						</tr>
+						
+					
+					
+						
+						<tr>
+							<td style="display:none;"></td>             
+							<td>1</td>
+							<td style="text-align:center;">2021</td>               
+							<td style="text-align:left;">Book Chapter/ Conf. Proceedings</td>
+							
+							<td style="text-align:left;"><textarea rows="3" cols="40" wrap="hard" readonly>Chapter of the book</textarea></td>
+							
+							
+							<td style="text-align:left;"><textarea rows="3" cols="40" wrap="hard" readonly>Best book</textarea></td>
+							<td style="text-align:center;">2</td>        
+							<td style="text-align:left;"><textarea rows="3" cols="30" wrap="hard" readonly>gasgaga</textarea></td>
+							<td style="text-align:left;">National</td>
+							<td style="text-align:left;">gsgsagsa</td>
+
+							
+							
+								<td><a class="btn btn-secondary btn-lg" href='http://www.jaduniv.edu.in/' target=_blank>View</a></td>
+							
+							
+										
+							<td style="text-align:center;">2.50</td>
+							
+								
+							
+					  
+						</tr>
+						
+						
+					
+					<tr>
+							
+							<td></td>					
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td style="font-weight:bold;">Total</td>									
+							<td style="text-align:center;font-weight:bold;">2.50</td>
+							
+					</tr>
+					
+			</table>
+			<br>
+			<table repeat="1">
+				<tr>
+					<td style="text-align:left;font-size:14px;font-weight:bold">III-B(ii): Referring of Journal Papers from UGC list </td>
+				</tr>
+			</table>
+			
+			<table repeat="1" class="content-loader" width="93%" border="1" cellspacing="0" cellpadding="5">
+						
+						<tr>
+							
+							<th style="width:3%;">Sl.<br>No.</th>							
+							<th VALIGN=TOP style="width:28%;text-align:left;">Journal Name</th>
+							<th VALIGN=TOP style="width:28%;text-align:left;">Title of the paper</th>
+							<th VALIGN=TOP style="width:11%;text-align:center;">Year of review <br> submission</th>
+							<th VALIGN=TOP style="width:10%;text-align:center;">Review Invitation <br> Letter link</th>
+							<th VALIGN=TOP style="width:10%;text-align:center;">Review submission <br> document link</th>									   
+							<th style="width:10%;text-align:center;">Self <br>Appraisal <br>Score</th>
+							
+								
+							
+						</tr>
+						
+					
+					
+						<tr>
+							<td style="display:none;"></td>             
+							<td>1</td>
+							<td style="text-align:left;"><textarea rows="3" cols="40" wrap="hard" readonly>CrystEngComm - CE-ART-01-2023-000091</textarea></td>
+							<td style="text-align:left;"><textarea rows="3" cols="40" wrap="hard" readonly>Insight into polymorphism of the aripiprazole</textarea></td>	
+							<td style="text-align:center;">2023</td>
+							
+							
+							
+								<td style="text-align:center;"><a  class="btn btn-secondary btn-lg" href='http://www.jaduniv.edu.in/' target=_blank>View</a></td>
+							
+							
+
+							
+								<td style="text-align:center;"><a class="btn btn-secondary btn-lg" href='http://www.jaduniv.edu.in/' target=_blank>View</a></td>
+							
+							
+							<td style="text-align:center;">5.00</td>
+							
+								
+							
+					  
+						</tr>
+						
+					
+					
+						<tr>
+							<td style="display:none;"></td>             
+							<td>2</td>
+							<td style="text-align:left;"><textarea rows="3" cols="40" wrap="hard" readonly>Journal of Molecular Structure -
+MOLSTRUC-D-23-01390R1</textarea></td>
+							<td style="text-align:left;"><textarea rows="3" cols="40" wrap="hard" readonly>Synthesis, non-covalent interactions and chemical
+reactivity of 1-pentyl-3-phenylquinoxalin-2(1H)-one —
+Structural and computational studies</textarea></td>	
+							<td style="text-align:center;">2023</td>
+							
+							
+							
+								<td style="text-align:center;"><a  class="btn btn-secondary btn-lg" href='http://www.jaduniv.edu.in/' target=_blank>View</a></td>
+							
+							
+
+							
+								<td style="text-align:center;"><a class="btn btn-secondary btn-lg" href='http://www.jaduniv.edu.in/' target=_blank>View</a></td>
+							
+							
+							<td style="text-align:center;">5.00</td>
+							
+								
+							
+					  
+						</tr>
+						
+					
+					<tr>
+														
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td style="text-align:center;font-weight:bold;">Total</td>									
+							<td style="text-align:center;font-weight:bold;">10.00</td>
+							
+					</tr>
+					
+			</table>
+			
+			<div>				
+                <pdf:nextpage /> 
+            </div>
+			<br>
+           
+			
+    
+            <h1 style="text-align:left;font-size:14px"> CATEGORY III-C: Research Projects
+            </h1>
+			<h2 style="text-align:left;font-size:12px">III-C (i):  Sponsored Project</h2>
+			
+			<table repeat="1" class="content-loader" width="100%" border="1" cellspacing="0" cellpadding="5">
+						<tr>
+							
+							<th style="width:3%;">Sl.<br>No.</th>
+							<th style="width:15%;text-align: left;">Area of the Applicant</th>
+							<th style="width:25%;text-align: left;">Title of the Project</th>
+							<th style="width:22%;text-align: left;">Name of the Funding <br> Agency</th>						
+							<th style="width:7%;text-align:center;">Duration <br> (no.of years)</th>
+							<th style="width:8%;text-align: center;">Grant Sanctioned<br>(in Lkhs)</th>
+							<th style="width:6%;text-align: center;">Upload Grant<br>Letter link </th>           
+							<th style="width:7%;text-align:center;">Self <br>Appraisal <br>Score</th>
+								
+									
+								
+						</tr>
+					
+				
+					
+						<tr>
+							<td style="display:none;"></td>             
+							
+							<td>1</td>
+						   
+							<td>Science</td>               
+							<td><textarea rows="3" cols="40" wrap="hard" readonly>Quantitative analysis of noncovalent interactions of
+organic solids for photosensitive Schottky barrier diode
+behavior</textarea></td>
+							<td><textarea rows="3" cols="30" wrap="hard" readonly>Science and Engineering Research Board
+(SERB)</textarea></td>
+							<td style="text-align:center;">3</td>
+							<td style="text-align:center;">41.47</td>        
+							
+							
+							
+								<td style="text-align:center;"><a class="btn btn-secondary btn-lg" href='http://www.jaduniv.edu.in/' target=_blank>View</a></td>
+							
+							
+										
+							<td style="text-align:center;">41.47</td>
+							
+								
+							
+							
+
+						</tr>
+						
+					
+				
+					<tr>
+							
+							<td></td>					
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td style="text-align:center;font-weight:bold;">Total</td>									
+							<td style="text-align:center;font-weight:bold;">41.47</td>
+							
+					</tr>
+					
+			
+			</table>
+			<br>
+			<br>
+			<h2 style="text-align:left;font-size:12px">III-C (ii):  Consultancy Project</h2>
+			
+			<table repeat="1" class="content-loader" width="100%" border="1" cellspacing="0" cellpadding="5">
+			
+						<tr>
+							
+							<th style="width:3%;">Sl.<br>No.</th>
+							<th style="width:15%;text-align: left;">Area of the Applicant</th>
+							<th style="width:25%;text-align: left;">Title of the Project</th>
+							<th style="width:22%;text-align: left;">Name of the Funding <br> Agency</th>						
+							<th style="width:7%;text-align:center;">Duration <br> (no.of years)</th>
+							<th style="width:8%;text-align: center;">Amount Mobilized</th>
+							<th style="width:6%;text-align: center;">Upload Grant<br>Letter link</th>           
+							<th style="width:7%;text-align:center;">Self <br>Appraisal <br>Score</th>
+								
+									
+								
+						</tr>
+					
+					
+					  <tr>
+						<td style="display:none;"></td>             
+						<td style="display:none;"></td>            
+						<td>1</td>			
+						<td>Science</td>               
+						<td><textarea rows="3" cols="40" wrap="hard" readonly>dgdsgsd</textarea></td>
+						<td>dsgdsgsd</td>
+						<td style="text-align:center;">1</td>
+						<td style="text-align:center;">15.00</td>        
+						
+						
+						
+							<td><a style="text-align:center;" class="btn btn-secondary btn-lg" href='http://www.jaduniv.edu.in/' target=_blank>View</a></td>
+						
+						
+									
+						<td style="text-align:center;">10.00</td>
+						
+						
+				  
+
+					</tr>
+					
+					
+					
+					<tr>
+							
+							<td></td>					
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td style="text-align:center;font-weight:bold;">Total</td>									
+							<td style="text-align:center;font-weight:bold;">10.00</td>
+							
+					</tr>
+					
+    
+			</table>
+			<br>
+			<br>
+			<h2 style="text-align:left;font-size:12px">III-C (iii):  Projects Outcome/Output</h2>
+			
+			<table repeat="1" class="content-loader" width="100%" border="1" cellspacing="0" cellpadding="5">
+			
+				<tr>
+				  
+				  <th style="width:3%;">Sl.<br>No.</th>
+				  <th style="width:15%;text-align: left;">Area of the Applicant</th>
+				  <th style="width: 10%;text-align: left;">Type</th>
+				  <th style="width:23%;text-align: left;">Title</th>
+				  <th style="width: 10%;text-align: left;">Level</th>
+				  <th style="width: 10%;text-align: center;">Doc.No./<br>Patent No/<br>Other ref. no</th>
+				  <th style="width: 8%;text-align: center;">Status<br>(if patent only)</th>
+				  <th style="width: 5%;text-align: center;">Upload doc.link</th>           
+				 
+				  <th style="width: 9%;text-align: center;">Self Appraisal Score</th>
+				  
+				  	
+				  
+			  </tr>
+			  
+			
+				
+				<tr>
+					  <td style="display:none;"></td>            
+					  <td>1</td>		  
+					  <td>Engineering &amp; Technology</td>               
+					  <td>Patent</td>
+					  <td><textarea rows="3" cols="40" wrap="hard" readonly>Preparation of bifunctional Ru/CeO2-SBA-15
+catalyst for the production of hydrocarbon fuels from
+industrial effluents
+
+afjskjfsakljflksa</textarea></td>
+					  <td>International</td>
+					  <td style="text-align:center;">202211020754</td>
+					  
+						<td style="text-align: center;">Filed</td>
+					  
+					  
+						  <td style="text-align: center;"><a class="btn btn-secondary btn-lg" href='http://www.jaduniv.edu.in/' target=_blank>View</a></td>
+					  
+					  
+								  
+					  <td style="text-align: center;">30.00</td>
+					  
+					  
+					  
+				</tr>
+				
+			
+				<tr>
+							
+							<td></td>					
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td style="text-align:center;font-weight:bold;">Total</td>									
+							<td style="text-align:center;font-weight:bold;">30.00</td>
+							
+				</tr>
+					
+			</table>
+			
+			<br>
+			 
+			<h2 style="text-align:left;font-size:14px">III-D:  Research Guidance</h2>
+			
+			<table repeat="1" class="content-loader" width="100%" border="1" cellspacing="0" cellpadding="5">
+			
+			
+				<tr>
+				  
+				  <th style="width:3%;">Sl.<br>No.</th>
+				  <th style="width:20%;text-align: left;">Name of the Student</th>
+				  <th style="width:15%;text-align: left;">Degree</th>
+				  <th style="width:30%;text-align: left;">Title of the Thesis</th>
+				  <th style="width:9%;text-align: left;">Status</th>
+				  <th style="width: 7%;text-align: center;">Document Link</th>				           
+				 
+				  <th style="width: 9%;text-align: center;">Self API Score</th>
+				  
+				  	
+				  
+			  </tr>
+			
+				
+					  <tr>
+						<td style="display:none;"></td>             
+						
+						<td>1</td>
+						<td>Sourav roy</td>
+						<td>MPHARM</td>
+						<td><textarea rows="3" cols="40" wrap="hard" readonly>asasas</textarea></td>
+						<td>Degree awarded</td>			
+						
+						
+							<td style="text-align: center;"><a class="btn btn-secondary btn-lg" href='https://www.get-digital-help.com/highlight-duplicates-in-a-filtered-excel-defined-table/' target=_blank>View</a></td>
+						
+						
+									
+						<td style="text-align: center;">Blank</td>
+						
+							
+				  
+					</tr>
+				
+			
+				
+					  <tr>
+						<td style="display:none;"></td>             
+						
+						<td>2</td>
+						<td>Aritra Das</td>
+						<td>PhD</td>
+						<td><textarea rows="3" cols="40" wrap="hard" readonly>A novel approach to biomethane synthesis after pretreatment of
+agricultural wastes through catalytic anaerobic digestion</textarea></td>
+						<td>Degree awarded</td>			
+						
+						
+							<td style="text-align: center;"><a class="btn btn-secondary btn-lg" href='http://www.jaduniv.edu.in/' target=_blank>View</a></td>
+						
+						
+									
+						<td style="text-align: center;">15.00</td>
+						
+							
+				  
+					</tr>
+				
+			
+				
+					  <tr>
+						<td style="display:none;"></td>             
+						
+						<td>3</td>
+						<td>Sourav Roy</td>
+						<td>MPHARM</td>
+						<td><textarea rows="3" cols="40" wrap="hard" readonly>fssf</textarea></td>
+						<td>Degree awarded</td>			
+						
+						
+							<td style="text-align: center;"><a class="btn btn-secondary btn-lg" href='chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/http://www.jaduniv.edu.in/new_upload/patentdoc/An_automated_probing.pdf' target=_blank>View</a></td>
+						
+						
+									
+						<td style="text-align: center;">Blank</td>
+						
+							
+				  
+					</tr>
+				
+			
+				
+					  <tr>
+						<td style="display:none;"></td>             
+						
+						<td>4</td>
+						<td>Sourav Nag</td>
+						<td>PhD</td>
+						<td><textarea rows="3" cols="40" wrap="hard" readonly>Studies on high voltage cathode materials for advanced lithium-ion
+battery</textarea></td>
+						<td>Thesis submitted</td>			
+						
+						
+							<td style="text-align: center;"><a class="btn btn-secondary btn-lg" href='http://www.jaduniv.edu.in/' target=_blank>View</a></td>
+						
+						
+									
+						<td style="text-align: center;">10.00</td>
+						
+							
+				  
+					</tr>
+				
+			
+				
+					  <tr>
+						<td style="display:none;"></td>             
+						
+						<td>5</td>
+						<td>dgdgdsgg</td>
+						<td>PhD</td>
+						<td><textarea rows="3" cols="40" wrap="hard" readonly>dgsdd</textarea></td>
+						<td>Ph.D Registered</td>			
+						
+						
+							<td style="text-align: center;"><a class="btn btn-secondary btn-lg" href='http://www.jaduniv.edu.in/' target=_blank>View</a></td>
+						
+						
+									
+						<td style="text-align: center;">5.00</td>
+						
+							
+				  
+					</tr>
+				
+			
+					<tr>
+							
+							<td></td>					
+							<td></td>
+							<td></td>
+							<td></td>							
+							<td></td>
+							<td style="text-align:center;font-weight:bold;">Total</td>									
+							<td style="text-align:center;font-weight:bold;">30.00</td>
+							
+					</tr>
+					
+			</table>
+			<div>				
+                <pdf:nextpage /> 
+            </div>
+			
+			<br>
+			<table repeat="1">
+				<tr>
+					<td style="text-align:left;font-size:14px;font-weight:bold">III-E : Fellowships, Awards and Invited lectures delivered in conferences / seminars</td>
+				</tr>
+			</table>
+			
+    
+				
+			<h2 style="text-align:left;font-size:12px">III-E : (i)  Fellowship / Award from Academic Bodies/Associations</h2>
+			
+			<table repeat="1" class="content-loader" width="100%" border="1" cellspacing="0" cellpadding="5">
+			
+				<tr>
+				  
+				  <th style="width:3%;">Sl.<br>No.</th>
+				  <th style="width:10%;text-align: left;">Type</th>
+				  <th style="width:20%;text-align: left;">Name of the Fellowship/Award</th>
+				  <th style="width:30%;text-align: left;">Name of the Awarding <br> Body/Association</th>
+				  <th style="width:12%;text-align: left;">Level</th>
+				  <th style="width: 9%;text-align: center;">Document Link</th>				           
+				 
+				  <th style="width: 9%;text-align: center;">Self Appraisal Score</th>
+				  
+				  	
+				  
+			  </tr>
+			  
+						
+						  <tr>
+							<td style="display:none;"></td>             
+							
+							<td>1</td>
+							<td>Award for academic bodies/ Association</td>
+							<td><textarea rows="3" cols="40" wrap="hard" readonly>Chemical Weekly Award for the Best Paper
+published in the Indian Chemical Engineer
+journal in its issues for 2018
+jaskfjsakljf jfklsaajfklsaj jlkjsalkjfls</textarea></td>
+							<td><textarea rows="3" cols="40" wrap="hard" readonly>IIChE</textarea></td>
+							<td>International</td>			
+							
+							
+								<td style="text-align: center;"><a class="btn btn-secondary btn-lg" href='http://www.jaduniv.edu.in/' target=_blank>View</a></td>
+							
+							
+										
+							<td style="text-align: center;">15.00</td>
+							
+							
+					    
+
+						</tr>
+					  
+				   
+				   <tr>
+							
+							<td></td>					
+							<td></td>
+							<td></td>
+							<td></td>							
+							<td></td>
+							<td style="text-align:center;font-weight:bold;">Total</td>									
+							<td style="text-align:center;font-weight:bold;">15.00</td>
+							
+					</tr>
+			</table>
+		
+			<br>			
+			<h2 style="text-align:left;font-size:12px">III-E : (ii) Invited Lecture / Paper presented</h2>
+			
+			<table repeat="1" class="content-loader" width="100%" border="1" cellspacing="0" cellpadding="5">
+		
+				<tr>
+				  
+				  <th style="width:3%;">Sl.<br>No.</th>
+				  <th style="width: 9%;text-align: left;">Type</th>
+				  <th style="width: 14%;text-align: left;">Title of the Lecture/Paper</th>
+				  <th style="width: 14%;text-align: left;">Name of the Conference/<br>Seminar/ Workshop</th>
+				  <th style="width: 10%;text-align: left;">Organized by</th>
+				  <th style="width: 10%;text-align: left;">Venue</th>
+				  <th style="width: 7%;text-align: left;">Duration</th>
+				  <th style="width: 8%;text-align: left;">Level</th>
+				  
+				  <th style="width: 9%;text-align: center;">Document Link</th>				           
+				 
+				  <th style="width: 9%;text-align: center;">Self Appraisal Score</th>
+				  
+				  	
+				  
+			  </tr
+			  
+			  
+					
+					  <tr>
+						<td style="display:none;"></td>             
+						
+						<td>1</td>
+						<td>Invited Lecture</td>
+						<td><textarea rows="3" cols="40" wrap="hard" readonly>Advanced Oxidation of Phenol
+over MCM-41 supported Ru
+Catalyst in a Fixed Bed Flow
+Reactor</textarea></td>
+						<td><textarea rows="3" cols="40" wrap="hard" readonly>Advanced Oxidation
+Processes for Environmental
+Remediation (AOPER-2022)</textarea></td>
+						<td><textarea rows="3" cols="20" wrap="hard" readonly>NIT-Rourkela</textarea></td>
+						<td><textarea rows="3" cols="20" wrap="hard" readonly>Department of Chemical Engineering</textarea></td>
+						<td>7</td>				
+						<td>National</td>			
+						
+						
+							<td style="text-align: center;"><a class="btn btn-secondary btn-lg" href='http://www.jaduniv.edu.in/' target=_blank>View</a></td>
+						
+						
+									
+						<td style="text-align: center;">5.00</td>
+						
+
+					</tr>
+				  
+			
+					<tr>
+							
+							<td></td>					
+							<td></td>
+							<td></td>
+							<td></td>							
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td style="text-align:center;font-weight:bold;">Total</td>									
+							<td style="text-align:center;font-weight:bold;">5.00</td>
+							
+					</tr>
+			</table>
+		
+			<br>
+			<br>
+			<br>
+			<br>			
+			<h2 style="text-align:left;font-size:12px">III-E (iii): e-Learning Delivery Process/Material</h2>
+			
+			<table repeat="1" class="content-loader" width="100%" border="1" cellspacing="0" cellpadding="5">
+			
+			<tr>
+				  
+				  <th style="width:3%;">Sl.<br>No.</th>
+				  <th style="width: 25%;text-align: left;">Name of the Module</th>
+				  <th style="width: 20%;text-align: left;">Name of the Course</th>
+				  <th style="width: 20%;text-align: left;">Name of the Program</th>
+				 
+				  <th style="width: 15%;text-align: center;">Document Link</th>				           
+				 
+				  <th style="width: 10%;text-align: center;">Self Appraisal Score</th>
+				  
+				  	
+				  
+			  </tr>
+			   
+					
+					  <tr>
+						<td style="display:none;"></td>
+						<td>1</td>
+						<td><textarea rows="3" cols="40" wrap="hard" readonly>elective</textarea></td>
+						<td><textarea rows="3" cols="40" wrap="hard" readonly>Catalytic Processes for Green Energy</textarea></td>
+						<td><textarea rows="3" cols="40" wrap="hard" readonly>Elective for undergradute ( 4th year)  hfhdfhdf</textarea></td>							
+									
+						
+						
+							<td style="text-align: center;"><a class="btn btn-secondary btn-lg" href='http://www.jaduniv.edu.in/' target=_blank>View</a></td>
+						
+						
+									
+						<td style="text-align: center;">10.00</td>
+						
+						
+				  
+
+					</tr>
+				  
+				
+       
+					<tr>
+							
+							<td></td>					
+							<td></td>
+							<td></td>													
+							<td></td>
+							<td style="text-align:center;font-weight:bold;">Total</td>									
+							<td style="text-align:center;font-weight:bold;">10.00</td>
+							
+					</tr> 
+			</table>
+			
+			<div>
+				<pdf:nexttemplate name="api_summ"/> 			
+                <pdf:nextpage /> 
+            </div>
+			<br>
+			<br>
+			
+			
+				<h1 align="left">Welcome : IQAC JU</h1>				
+			
+			<hr/>
+			
+				<table repeat="1"  class="content-loader" width="50%" align="center" border="1" cellspacing="0" cellpadding="5" >
+			
+					<tr >
+						<th>Stage / Designation From:</th>
+						<td>Assistant Prof. (Stage 3)</td>
+					</tr>
+					
+					<tr >
+						<th>Stage / Designation To:</th>
+						<td >Associate Prof. (Stage 4)</td>
+					</tr>
+					
+					<tr >
+						<th>Date of last promotion,<br>( if any ) :</th>
+						<td>05-01-2015</td>
+					</tr>
+					<tr >
+						<th>Date of eligibility for promotion :</th>
+						<td>15-05-2020</td>
+					</tr>
+					<tr>
+						<th>Assessment Period <br>(no.of years):</th>
+						<td>5</td>
+					</tr>
+					
+				
+			
+				</table>
+				
+				<h2 style="line-height:0;text-align:center;font-size:20px;background-color:#00b3b3;color:white;">API Score Summary
+				</h2>
+				<table  class="content-loader" width="80%" align="center" border="1" cellspacing="0" cellpadding="5" >
+					<tr>
+						<th style="text-align:center;">Category</th>
+						<th>Period</th>
+						<th style="text-align: center;">Self Appraisal<br> Score</th>
+						
+						<th style="text-align:center;">Status <br> (options)</th>
+					</tr>
+					
+				<!-- API Catg-I -->
+				
+				<tr>
+					<td style="text-align:center;">I</td>
+					<td>Yearly</td>
+					<td id="api1" style="text-align:center;">95.00</td>
+					<td id="api3" style="text-align:center;">Criteria Satisfied</td>
+					
+				</tr>
+				<tr>
+					<td style="text-align:center;">II</td>
+					<td>Assessment Period</td>
+					<td id="api1" style="text-align:center;">225.00</td>
+					<td id="api3" style="text-align:center;">Criteria Satisfied</td>
+					
+				</tr>	
+				<tr>
+					<td style="text-align:center;">III</td>
+					<td>Assessment Period</td>
+					<td id="api1" style="text-align:center;">229.22</td>
+					<td id="api3" style="text-align:center;">Criteria Satisfied</td>
+					
+				</tr>
+				<tr>
+					<td style="text-align:center;">II + III</td>
+					<td>Assessment Period</td>
+					<td id="api1" style="text-align:center;">454.22</td>
+					<td id="api3" style="text-align:center;">Criteria Satisfied</td>
+					
+				</tr>
+				
+				</table>
+				<br>
+				<br>
+				<div style="margin-top:5px;">
+					<!--<img src="http://172.24.160.51:8000/media/general/user_11/sign.png"  style="width:150px;height:100px;" align="right">-->
+					<img src="http://127.0.0.1:8000/media/general/user_11/sign.png"  style="width:150px;height:100px;" align="right"/>
+					
+					<p style="margin-left:540px;letter-spacing:1px;" >Signature of Applicant</p>
+					
+				</div>
+				
+			<div>
+				<pdf:nexttemplate name="fwd_link"/> 			
+                <pdf:nextpage /> 
+            </div>
+			<br>
+			<div align="center" >
+			
+				<img src="http://localhost:8000/media/general/user_11/Screenshot_2023-01-13_at_11-57-22_NAAC_-_Disclosure_of_Benchmarks.png" style="width:550px;height:750px;" >
+			
+			</div>
+	</div>
+	
+	<script type="text/javascript">
+	
+	</script>
+	
+	</body>
+	
+	
+    </html>

@@ -1,0 +1,122 @@
+{% extends 'base_v2.html' %}
+{% load static %}
+
+{% block content %}
+
+<head>
+
+	
+<style type="text/css">
+
+		 
+		.card-body{
+			background-color: #5d5c61;
+			cursor:default;
+			
+		} 
+		
+		thead.sticky {
+		  position: -webkit-sticky;
+		  position: sticky;
+		  top: 0;		  	  
+		  padding: 50px;
+		  font-size: 22px;
+		  height : 40px;
+		  background: #92a8d1;;
+		  
+		}
+		
+		th{
+		  color:black;	
+		}
+		
+		span{
+		  color:red; 	
+		}
+		
+		table {
+			border:none !important;
+			border-spacing: 10px !important;
+		}
+		table tr td.me {
+			  background: pink;
+			  color:black;			  	
+			  border-radius: 10px 50%;
+			  text-align: center;
+			  margin-left: 10px;
+		}
+		table tr td.me1 {
+			  background: red;
+			  color:black;			  	
+			  border-radius: 10px 50%;
+			  text-align: center;
+			  margin-left: 10px;
+		}
+		table tr td.me2 {
+			  background: yellow;
+			  color:black;
+			  font-weight:bolder;
+			  border-radius: 50%;
+			  text-align: center;
+			  
+		}
+		table tr td.me3 {
+			  background: powderblue;			  
+			  color:black;
+		      font-size:20px;		
+			  font-weight:bolder;			  			  
+			  text-align: left;
+		}
+</style>
+
+
+</head>
+
+          
+	<div class="card-body">
+		<h2 class="card-title" style="margin-left:20px;color:white;">Overview Applicant Statuses</h2>
+	
+	<table id="cas" class = "table  rounded shadow display " style="width:100% ">
+				
+				<h2 style="color:white;font-weight:bolder;font-size:30px;text-align:center">Applicant's Status</h2>
+				
+				<thead class="sticky">
+					<tr>
+						<th style="text-align: left; width:1%">Srl.</th>
+						<th style="text-align: left; width:1%">ID</th>
+						<th style="text-align: left; width:5%">Name</th>	
+						<th style="text-align: left; width:10%">Department</th>						
+						<th style="width:2%;"></th>
+						<th style="width:2%;"></th>
+						<th style="width:2%;"></th>
+						<th style="width:2%;"></th>
+						<th style="width:2%;"></th>
+						<th style="width:2%;"></th>
+						<th style="width:2%;"></th>
+						<th style="width:2%;"></th>
+						<th style="width:2%;"></th>
+					</tr>
+				</thead>
+				
+				 {% for appl in account %}
+					<tr>
+						<td class="me3">{{ forloop.counter }}</td>
+						<td class="me3">{{ appl.id }}</td>
+						<td class="me3">{{ appl.username }}</td>
+						<td class="me3">{{ appl.Department.name }}</td>
+								
+						
+					</tr>				
+				 {% endfor %}
+				 
+				
+	</table>
+	
+	
+	</div>
+	
+<script type="text/javascript">
+        
+</script>
+
+{% endblock content %}

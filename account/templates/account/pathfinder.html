@@ -1,0 +1,40 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Mail File Attachment</title>
+	
+	<style type="text/css">
+		
+	
+
+	</style>
+  </head>
+
+  <body>
+  
+  
+	<main>
+	<h2> Please check your mail</h2>
+	
+	{% if message %}
+		<div class="alert alert-success" style="font-size:20px;fontweight:bold;">
+			{{ message }}
+		</div>
+	{% endif %}
+	
+    </main>
+
+
+
+
+<script type="text/javascript">
+
+</script>
+
+</body>
+
+</html>

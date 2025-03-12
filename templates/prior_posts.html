@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prior Posts</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        .message {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #f4f4f4;
+        }
+    </style>
+    <script>
+        function confirmDeletion(event, counter) {
+            if (!confirm("Are you sure you want to delete record number " + counter + " ? This action cannot be undone.").style.backgroundColor="red") {
+                event.preventDefault();
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Prior Posts</h1>
+    <a href="?csv=true">Download CSV</a>
+
+    {% if messages %}
+        <div class="message">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <table>
+        <thead>
+            <tr>
+                <th>Srl No</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Designation</th>
+                <th>Employer</th>
+                <th>Department Name</th>
+                <th>Faculty</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in prior_posts %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ post.email.username }}</td>
+                <td>{{ post.email.email }}</td>
+                <td>{{ post.get_designation_display }}</td>
+                <td>{{ post.employer }}</td>
+                <td>{% if post.email.Department %}{{ post.email.Department.name }}{% endif %}</td>
+                <td>{% if post.email.Department %}{{ post.email.Department.faculty }}{% endif %}</td>
+                <td>
+                    <form action="{% url 'delete_prior_post' post.id %}" method="post" onsubmit="confirmDeletion(event, {{ forloop.counter }});">
+                        {% csrf_token %}
+                        <button type="submit" data-counter="{{ forloop.counter }}">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

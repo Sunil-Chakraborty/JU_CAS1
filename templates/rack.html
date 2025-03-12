@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rack Display</title>
+    <style>
+        .rack {
+            display: flex;
+            flex-wrap: wrap;
+            width: 750px;
+            height: 150px;
+            
+        }
+        .slot {
+            width: 95px;
+            height: 70px;
+			border: 1px solid black;
+			background-color:lightgrey;	
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2px;
+			padding: 7px;
+            overflow: hidden; /* Ensures the image is contained within the slot */
+        }
+		.empty {
+            width: 70px;
+            height: 50px;			
+			background-color: blue;
+			opacity: 0.3;	
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2px;
+			padding: 7px;
+            overflow: hidden; /* Ensures the image is contained within the slot */
+        }
+        .slot img {
+            max-width: 100%; /* Ensures the image fills the entire width of the slot */
+            max-height: 100%; /* Ensures the image fills the entire height of the slot */
+            object-fit: contain;
+			display: block; /* Ensures the image doesn't have any extra spacing around it */
+			padding: 5px;
+		}
+		
+		.image-container {
+			position: relative;
+		}
+		.quantity {
+			position: relative;
+			bottom: 0;
+			left: 0;
+			width: 100%; /* Ensure quantity text spans the entire width of the container */
+			background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+			padding: 0;
+			margin: 0;
+		}
+    </style>
+</head>
+<body>
+    <h2>Blue Stone Gold Ring</h2>
+    <div class="rack">
+        {% for slot in range(rack_capacity) %}
+		
+            <div class="slot" >
+                {% if loop.index in filled_slots %}
+					
+						<img src="{{ url_for('static', filename='product_images/' + product_images[loop.index]) }}" alt="Product Image">
+						<small class="quantity" >gms: {{ quantities[loop.index] }}</small>
+				
+				{% else %}
+					<p class="empty" style="color:white;">{{ loop.index }}</p>
+                {% endif %}
+				
+            </div>
+       
+		{% endfor %}
+    </div>
+</body>
+</html>

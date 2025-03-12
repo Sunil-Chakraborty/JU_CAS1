@@ -1,0 +1,233 @@
+<!--{% load static %}-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Feedback</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--<script src="{% static 'js/voting.js' %}"></script>-->
+	
+	<style>
+		.flex-container {
+		  display: flex;
+		  background-color: rgb(186 230 253); 
+		  width: 62%;		 
+		}
+		.flex-container > div {
+		  background-color: #f1f1f1;
+		  margin: 10px;
+		  padding: 5px;
+		  font-size: 20px;
+		  font-weight:bold;
+		  border-radius: 10px;
+		}
+		
+		.button {
+		  background-color: #04AA6D;
+		  font-weight:bold;
+		  border: none;
+		  color: white;
+		  padding: 15px 32px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 20px;
+		  margin: 4px 2px;
+		  cursor: pointer;
+		}
+		table {
+            width: 62%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+			font-size:20px;
+			font-weight:bold;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+			font-size:20px;
+        }
+
+        td input {
+            margin: auto;
+        }		
+	</style>
+	
+	<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Function to get CSRF token
+            function getCookie(name) {
+                let cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    const cookies = document.cookie.split(';');
+                    for (let i = 0; i < cookies.length; i++) {
+                        const cookie = cookies[i].trim();
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+            const csrftoken = getCookie('csrftoken');
+
+            // Function to check if the user has already voted
+            function hasVoted() {
+                return localStorage.getItem('voted') !== null;
+            }
+
+            // Function to set the vote timestamp
+            function setVoteTimestamp() {
+                localStorage.setItem('voted', new Date().toISOString());
+            }
+
+            // Form submission handler
+            document.getElementById('feedback-form').addEventListener('submit', function (event) {
+                if (hasVoted()) {
+                    alert('You have already submitted feedback.');
+                    event.preventDefault(); // Prevent form submission
+                } else {
+                    setVoteTimestamp();
+					alert("Thanks for submission");
+                }
+            });
+
+            // Function to clear local storage and session
+            window.clearLocalStorage = function () {
+                localStorage.clear();
+                fetch('/voting/clear-session/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrftoken  // Include the CSRF token for the request
+                    },
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text(); // Use .text() instead of .json()
+                })
+                .then(data => {
+                    if (data === "Session cleared") {
+                        alert("Local storage and session cleared!");
+                    } else {
+                        alert("Failed to clear session.");
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("An error occurred while clearing the session.");
+                });
+            }
+			
+			
+			
+        });
+	</script>
+	
+	
+</head>
+<body>
+	
+	
+    <h1 style="text-align:center;width:62%;">Students Feedback Form<br>
+	Faculty of Science, Jadavpur University<br><br>
+	<span style="font-size:25px;">FORM A: STUDENTS FEEDBACK ON TEACHING</span><br>
+	<small style="font-size:25px;">(This form will be filled up compulsorily by all the students of UG and PG classes in the last week of Semester/Class)</small>
+	
+	</h1>
+	<br>
+	<!--<div id="timer">Count down starts 2:00</div>-->
+	<br>
+    <form id="feedback-form" method="post" action="{% url 'voting:vote' %}">
+        {% csrf_token %}
+        
+		
+		<table>
+            <thead>
+                <tr>
+                    <th style="text-align:left;">Feedback on</th>
+                    <th>Outstanding</th>
+                    <th>Very Good</th>
+                    <th>Good</th>
+                    <th>Satisfactory</th>
+                    <th>Poor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align:left;font-size:25px;">Q1. Interest generated by the teacher on subject</td>
+                    <td><input type="radio" name="Q1" value="5" required></td>
+                    <td><input type="radio" name="Q1" value="4" required></td>
+                    <td><input type="radio" name="Q1" value="3" required></td>
+                    <td><input type="radio" name="Q1" value="2" required></td>
+                    <td><input type="radio" name="Q1" value="1" required></td>
+                </tr>
+                <tr>
+                    <td style="text-align:left;font-size:25px;">Q2. Clarity of presentation of the teacher in the classroom</td>
+                    <td><input type="radio" name="Q2" value="5" required></td>
+                    <td><input type="radio" name="Q2" value="4" required></td>
+                    <td><input type="radio" name="Q2" value="3" required></td>
+                    <td><input type="radio" name="Q2" value="2" required></td>
+                    <td><input type="radio" name="Q2" value="1" required></td>
+                </tr>
+                <tr>
+                    <td style="text-align:left;font-size:25px;">Q3. Coverage of the syllabus by the teacher</td>
+                    <td><input type="radio" name="Q3" value="5" required></td>
+                    <td><input type="radio" name="Q3" value="4" required></td>
+                    <td><input type="radio" name="Q3" value="3" required></td>
+                    <td><input type="radio" name="Q3" value="2" required></td>
+                    <td><input type="radio" name="Q3" value="1" required></td>
+                </tr>
+                <tr>
+                    <td style="text-align:left;font-size:25px;">Q4. Encouraging the students in the class for questions</td>
+                    <td><input type="radio" name="Q4" value="5" required></td>
+                    <td><input type="radio" name="Q4" value="4" required></td>
+                    <td><input type="radio" name="Q4" value="3" required></td>
+                    <td><input type="radio" name="Q4" value="2" required></td>
+                    <td><input type="radio" name="Q4" value="1" required></td>
+                </tr>
+                <tr>
+                    <td style="text-align:left;font-size:25px;">Q5. Regularity and punctuality of the teacher in taking classes</td>
+                    <td><input type="radio" name="Q5" value="5" required></td>
+                    <td><input type="radio" name="Q5" value="4" required></td>
+                    <td><input type="radio" name="Q5" value="3" required></td>
+                    <td><input type="radio" name="Q5" value="2" required></td>
+                    <td><input type="radio" name="Q5" value="1" required></td>
+                </tr>
+                <tr>
+                    <td style="text-align:left;font-size:25px;">Q6. Overall experience regarding skill method and learning</td>
+                    <td><input type="radio" name="Q6" value="5" required></td>
+                    <td><input type="radio" name="Q6" value="4" required></td>
+                    <td><input type="radio" name="Q6" value="3" required></td>
+                    <td><input type="radio" name="Q6" value="2" required></td>
+                    <td><input type="radio" name="Q6" value="1" required></td>
+                </tr>
+            </tbody>
+        </table>
+		
+	<div class="flex-container">
+			<div><button class="button"  type="submit">Submit Feedback</button></div>
+			<div><button class="button"  type="button" onclick="clearLocalStorage()">Clear Local Storage</button></div>
+			<div><button class="button"  type="button" onclick="location.href='{% url 'voting:feedback_list' %}'">View Feedback List</button></div>
+	</div>
+	
+	</form>
+	
+    <br>
+	
+   
+	
+		
+</body>
+</html>

@@ -1,0 +1,4 @@
+user = request.user
+stories = UserStory.objects.filter(user=user).select_related('story')
+faculty = Department.objects.filter(name=department).select_related('faculty')
+blog = models.ForeignKey(Blog, on_delete=models.CASCADE)

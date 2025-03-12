@@ -1,0 +1,16 @@
+Django - show loading message during long processing
+
+Add a javascript function that displays a loading image before 
+it actually calls the Django View.
+
+function showLoaderOnClick(url) {
+      showLoader();
+      window.location=url;
+  }
+
+function showLoader(){
+      $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
+  }
+
+And then in your template you can do:
+<a href='#' onclick="showLoaderOnClick('{% url 'my_namespace:my_view' %}')">This will take some time...</a>

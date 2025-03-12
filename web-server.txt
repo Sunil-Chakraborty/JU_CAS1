@@ -1,0 +1,41 @@
+Restart the web server: Sometimes, restarting the web server 
+can resolve issues with serving static files. You can restart 
+the web server using a command like sudo systemctl restart apache2
+or sudo systemctl restart nginx, depending on which web server 
+software you're using.
+
+
+Restart the web server:
+For Apache:
+sudo systemctl restart apache2
+
+For Nginx:
+sudo systemctl restart nginx
+
+Apache HTTP Server (Apache):
+
+Apache is one of the most widely used open-source web servers 
+globally. It's known for its stability, flexibility, 
+and extensive feature set.
+Apache supports a wide range of features, including static 
+and dynamic content, virtual hosting, SSL/TLS encryption, 
+URL rewriting, and more.
+It's often used with the mod_wsgi module to serve Python web
+applications like Django. Mod_wsgi allows Apache to interface
+with Python applications, such as Django, effectively.
+Configuration files for Apache are typically located in the
+/etc/apache2/ directory on Linux systems.
+
+Nginx:
+
+Nginx is a lightweight, high-performance web server known 
+for its efficiency and scalability. It's designed to handle 
+a large number of concurrent connections efficiently.
+While traditionally used as a reverse proxy and load balancer, 
+Nginx can also serve static content and proxy requests to 
+application servers.
+Nginx is often preferred for serving static files and proxying 
+requests to backend application servers like Django using the 
+uWSGI or Gunicorn application servers.
+Configuration files for Nginx are usually located in the 
+/etc/nginx/ directory on Linux systems.

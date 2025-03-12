@@ -1,0 +1,34 @@
+Sayantani Chakraborty
+Thu, Dec 22, 7:36 PM (3 days ago)
+to me
+
+Anydesk id :819757113
+Anydesk Password: iqac@321
+Server desktop pw: iqac@123
+
+---------- Forwarded message ---------
+From: Shyamal Bose <sysadmin@jadavpur.edu>
+Date: Thu, 22 Dec, 2022, 17:17
+Subject: Propose IQAC-CAS server details.
+To: DIRECTOR IQAC <dir.iqac@jadavpuruniversity.in>, AMITAVA DATTA <amitava.datta@jadavpuruniversity.in>, <iqac.16@gmail.com>
+
+
+Sir,
+      Propose IQAC-CAS server IP Address is 192.168.191.103
+ssh login user name - iqac-cas, password - iqac@123
+You can access it by ssh ,winscp and also by aaPanel.
+
+for remote access : 136.232.79.157:8000
+
+The aaPanel login details are as follows.
+
+ aaPanel Internal Address: https://192.168.191.103:7800/9d3321f5
+username: vfpuhbfv
+password: 28b0f285
+
+Thanks and Regards,
+
+Shyamal Bose
+JU
+
+

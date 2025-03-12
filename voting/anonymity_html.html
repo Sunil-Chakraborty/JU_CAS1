@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Voting System</title>
+</head>
+<body>
+    <form id="proceedForm">
+        <button type="button" onclick="generateStudentId()">Proceed</button>
+    </form>
+    <form id="feedbackForm" style="display:none;" method="POST" action="/submit_feedback">
+        {% csrf_token %}
+        <!-- Your feedback form fields here -->
+        <button type="submit">Submit Feedback</button>
+    </form>
+
+    <script>
+        function generateStudentId() {
+            const studentId = generateRandomId(10);
+            const facultyId = "FAC01"; // Example faculty_id, this should be dynamically set
+
+            // Store student_id and faculty_id in local storage
+            localStorage.setItem('student_id', studentId);
+            localStorage.setItem('faculty_id', facultyId);
+
+            // Register student in the virtual register
+            fetch('/register_student', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({ student_id: studentId, faculty_id: facultyId })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Show feedback form if registration is successful
+                    document.getElementById('proceedForm').style.display = 'none';
+                    document.getElementById('feedbackForm').style.display = 'block';
+                } else {
+                    alert('Registration failed: ' + data.message);
+                }
+            });
+        }
+
+        function generateRandomId(length) {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return result;
+        }
+    </script>
+</body>
+</html>

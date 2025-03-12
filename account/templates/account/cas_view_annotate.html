@@ -1,0 +1,331 @@
+{% extends 'base_admin.html' %}
+{% load static %}
+
+{% block content %}
+<!-- your_template.html -->
+<head>
+<style>
+	table.gridtable th {
+	  border-width: 1px;
+	  padding: 8px;
+	  border-style: solid;
+	  border-color: #666666;
+	  background-color: #dedede;
+	  font-size: 20px;
+	  vertical-align: top;
+	 
+	}
+	table.gridtable td {
+	  border-width: 1px;
+	  padding: 8px;
+	  border-style: solid;
+	  border-color: #666666;
+	  background-color: #ffffff;
+	  font-size: 20px;
+	  vertical-align: top;
+	}
+	strong {	  
+	  background-color:#ffffff;
+	}
+	.bold-graph {
+        font-weight: bold;
+		font-size: 30px;
+        font-family: Arial, sans-serif;
+    }
+	.w3-container{
+	    background-color: #92a8d1;
+		color: #000000;
+	}
+	
+	#facultyTable {
+      display: inblock; /* Initially hide the table */
+    }
+	.button-like {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;	  
+      border: 1px solid #3498db;
+      color: #ffffff;
+      background-color: #3498db;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+	.button-similar {
+		font-size: 20px;
+		font-weight: bold;
+		margin-left: 15px;
+		cursor: pointer; /* Add this line to set the pointer cursor */
+	}
+	
+	.hidden-table {
+            display: none; /* Set the initial display property to 'none' */
+    }
+	
+	@keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .blinking-text {
+      animation: blink 1s infinite;
+    }
+	
+	img {			
+		object-fit:fill;
+        width:200px;
+        height:300px;
+        border: solid 1px #CCC"
+	}
+	
+	.underline {
+	  text-decoration-line: underline;
+	  text-decoration-style: wavy;
+	}
+
+
+</style>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<div class="card shadow card-body">
+	<h1 class="card-title underline" style="text-align:center;font-weight:bold;font-family: Times New Roman, Times, serif;">
+		<img  class="card-img-bottom" src="{% static 'image/ju_logo.png' %}" alt="Ju Logo" style="width:15%;height:7%;"/>
+		Overall CAS status on {{ current_date|date:"F d, Y" }}
+		<a href="{% url 'account:home' user_id=request.user.id %}" class="btn blinking-text" style="color:green;font-weight:bold;font-family:arial;font-size:15px;"><blink>Go back</blink></a>
+	</h1>
+
+<div class="w3-container">
+    
+    <p class = "button-like" style="font-size:20px;font-weight:bold;margin-left:5px;">CAS Applicants Status </p>
+    <div class="row">
+		<div class="col-md-6">
+			<table class="table table-striped gridtable" style="margin-left:5px;">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Faculty</th>
+                        <th style="margin-left:10px;">Head(s)</th>
+                        <th style="text-align:center;">Registered</th>
+						<th style="text-align:center;">In Process</th>
+						<th style="text-align:center;">Final Submitted</th>
+                    </tr>
+                </thead>
+                <tbody>
+				
+                    {% for item in faculty_summary %}
+                    <tr class="table-success">
+						<td>{{ item.faculty }}</td>                       
+                        <td style="text-align:center;">{{ item.total_users }}</td>
+                        <td style="text-align:center;">{{ item.only_reg }}</td>
+						<td style="text-align:center;">{{ item.gen_info }}</td>
+						<td style="text-align:center;">{{ item.frm_submitted }}</td>
+                    </tr>
+                    {% endfor %}
+					
+					
+                    <tr>
+                        <td><strong>Grand Total</strong></td>
+                        <td style="text-align:center;"><strong>{{ grand_total_faculty_users }}</strong></td>
+                        <td style="text-align:center;"><strong>{{ grand_total_only_reg }}</strong></td>
+                        <td style="text-align:center;"><strong>{{ grand_total_gen_info }}</strong></td>
+                        <td style="text-align:center;"><strong>{{ grand_total_sumitted }}</strong></td>
+                    </tr>
+					
+					
+                </tbody>
+            </table>
+		</div>
+		<div class="col-md-6" style="margin-top: 0; padding-top: 0;">            
+            <div style="width: 100%; height: 100%;">
+                 <img src="data:image/png;base64,{{ graphic3 }}" alt="Matplotlib Plot" class="bold-graph" style="width: 100%; height: 90%;">
+            </div>
+        </div>
+		
+	</div>
+	<hr>
+	<br>
+	
+	<p class = "button-like" style="font-size:20px;font-weight:bold;">III-A : Journal Publication. </p>
+    
+	<div class="row">
+        <div class="col-md-6">
+            <table class="table table-striped gridtable" style="width:90%">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Faculty</th>
+                        <th style="margin-left:10px;">Head(s)</th>
+                        <th style="text-align:center;">Number of Publications</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for faculty_stat in faculty_stats %}
+                    <tr class="table-success">
+                        <td>{{ faculty_stat.faculty }}</td>
+                        <td style="text-align:center;">{{ faculty_stat.num_users }}</td>
+                        <td style="text-align:center;">{{ faculty_stat.num_publications }}</td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td><strong>Grand Total</strong></td>
+                        <td style="text-align:center;"><strong>{{ grand_total_users }}</strong></td>
+                        <td style="text-align:center;"><strong>{{ grand_total_publications }}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-6" style="margin-top: 0; padding-top: 0;">            
+            <div style="width: 100%; height: 100%;">
+                 <img src="data:image/png;base64,{{ graphic }}" alt="Matplotlib Plot" class="bold-graph" style="width: 100%; height: 90%;">
+            </div>
+        </div>
+		<p  style="font-size:20px;font-weight:bold;margin-left:5px;"><button class="toggle-button button-similar" onclick="toggleTable()">Details of Jrnl Pub Table</button>
+
+	</p>
+    </div>
+	<hr>
+		<p class = "button-like" style="font-size:20px;font-weight:bold;">III-B(i): Publications other than journal articles</p>
+
+        <div class="row">
+        <div class="col-md-6">
+            <table class="table table-striped gridtable" style="width:90%">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Faculty</th>
+                        <th style="margin-left:10px;">Head(s)</th>
+						<th style="text-align:center;">Text Book</th>
+						<th style="text-align:center;">Reference Book</th>
+						<th style="text-align:center;">Book Chapter/<br>Conf.Proceedings</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pub_other_stat in pub_other_stats %}
+                    <tr class="table-success">
+                        <td>{{ pub_other_stat.faculty }}</td>
+                        <td style="text-align:center;">{{ pub_other_stat.num_users }}</td>
+                        <td style="text-align:center;">{{ pub_other_stat.text_book }}</td>
+						<td style="text-align:center;">{{ pub_other_stat.ref_book }}</td>
+						<td style="text-align:center;">{{ pub_other_stat.bk_chap }}</td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td><strong>Grand Total</strong></td>
+                        <td style="text-align:center;"><strong>{{ grand_total_pub_users }}</strong></td>
+                        <td style="text-align:center;"><strong>{{ grand_total_pub_text_book }}</strong></td>
+						<td style="text-align:center;"><strong>{{ grand_total_pub_ref_book }}</strong></td>
+						<td style="text-align:center;"><strong>{{ grand_total_pub_bk_chap }}</strong></td>
+                    
+					
+					</tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-6" style="margin-top: 0; padding-top: 0;">            
+            <div style="width: 100%; height: 100%;">
+                 <img src="data:image/png;base64,{{ graphic2 }}" alt="Matplotlib Plot" class="bold-graph" style="width: 100%; height: 90%;">
+            </div>
+        </div>
+    </div>
+	 
+</div>
+	
+<br>
+
+
+<div class="w3-container"  >
+	<!-- Toggle Button 
+    <button class="toggle-button" onclick="toggleTable()">Details of Jrnl Pub Table</button>
+		-->
+	
+	<table id="facultyTable" class="table table-striped gridtable hidden-table" style="width:50%">
+	  	
+	  <thead class="thead-dark">
+	    <th colspan="4" style="font-size:20px;font-weight:bold;text-align:center;">Details of Journal Publication Table</th>
+		<tr>
+		  <th>Faculty</th>
+		  <th >Department Name</th>
+		  <th style="text-align:center;">Head(s)</th>
+		  <th style="text-align:center;" >Number of Publications</th>
+		</tr>
+	  </thead>
+	  <tbody>
+		{% for department in department_stats %}
+		  {% if department.num_publications %}
+			<tr data-faculty="{{ department.faculty }}" class="table-success">
+			  <td>{{ department.faculty }}</td>		  
+			  <td style="margin-left:10px;">{{ department.name }}</td>
+			  <td style="text-align:center;">{{ department.num_users }}</td>
+			  <td style="text-align:center;">{{ department.num_publications }}</td>
+			</tr>
+		  {% endif %}
+		{% endfor %}
+		
+		
+	  </tbody>
+	</table>
+
+	<br>
+</div>
+</div>
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script>
+	
+	function toggleTable() {
+            var secondTable = document.querySelector('.hidden-table');
+            secondTable.style.display = (secondTable.style.display === 'none') ? 'table' : 'none';
+    }
+		
+	$(document).ready(function() {
+	  var currentFaculty = null;
+	  var numUsersTotal = 0;
+	  var numPublicationsTotal = 0;
+	  var grandTotal = 0;
+	  var grandUser = 0;
+
+	  $('#facultyTable tbody tr').each(function() {
+		var faculty = $(this).data('faculty');
+
+		if (currentFaculty !== faculty) {
+		  if (currentFaculty !== null) {
+			// Display subtotal after each change in faculty
+			var subtotalRow = $('<tr><td><strong>' + currentFaculty + '</strong></td><td></td><td style="text-align:center;"><strong>'+ numUsersTotal +'</td><td style="text-align:center;"><strong>' + numPublicationsTotal + '</td></tr>');
+			$(this).before(subtotalRow);
+
+			// Add the subtotal to the grand total
+			grandUser += numUsersTotal;
+			grandTotal += numPublicationsTotal;
+		  }
+
+		  currentFaculty = faculty;
+		  numPublicationsTotal = 0;
+		  numUsersTotal = 0;
+		}
+
+		// Accumulate the total publications
+		numUsersTotal += parseInt($(this).find('td:eq(2)').text(), 10);
+	  	numPublicationsTotal += parseInt($(this).find('td:last').text(), 10);
+	  
+	  });
+
+	  // Display the final subtotal after the last faculty
+	  if (currentFaculty !== null) {
+		var finalSubtotalRow = $('<tr><td><strong>' + currentFaculty + '</strong></td><td></td><td style="text-align:center;"><strong>'+ numUsersTotal +'</td><td style="text-align:center;"><strong>' + numPublicationsTotal + '</td></tr>');
+		$('#facultyTable tbody').append(finalSubtotalRow);
+
+		// Add the final subtotal to the grand total
+		grandUser += numUsersTotal;
+		grandTotal += numPublicationsTotal;
+	  }
+
+	  // Display the grand total
+	  var grandTotalRow = $('<tr><td colspan="2"><strong>Grand Total</strong></td><td style="text-align:center;"><strong>' + grandUser + '</td><td style="text-align:center;"><strong>' + grandTotal + '</td></tr>');
+	  $('#facultyTable tbody').append(grandTotalRow);
+	});
+
+	</script>
+
+{% endblock content %}

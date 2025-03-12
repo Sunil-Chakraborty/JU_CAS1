@@ -1,0 +1,1 @@
+d:/JU_CAS1/venv/Scripts/deactivate.bat && cls

@@ -1,0 +1,18 @@
+
+If you're getting the "Port is already in use" error 
+while trying to run your Django server
+
+Identify the Process Using the Port:
+ 
+sudo lsof -i :8000
+
+Look for the PID (Process ID) associated with it.
+
+sudo kill <PID>
+exmp: sudo kill 5583
+
+sudo kill -9 <PID>
+The command sudo kill -9 <PID> is used to forcefully 
+terminate a process with the specified Process ID (PID).
+
+python3 manage.py runserver 172.24.160.51:8000  -- in ubuntu server
