@@ -11,7 +11,7 @@ from django.contrib.auth.models import User
 
 class AccountAdmin(UserAdmin):
 	list_display = (
-     'email','username','date_joined','dt_ob', 
+     'email','username','emp_id','date_joined','dt_ob', 
      'last_login','is_applicant','is_admin','is_hod','is_dean',
      'Department', 'Designation', 'faculty',
      'highest_quali','pan_no',

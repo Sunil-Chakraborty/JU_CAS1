@@ -21,6 +21,7 @@ from django.db import models
 import pdfkit
 import logging
 from django.template.loader import render_to_string  # Import render_to_string
+import re  # Import the 're' module
 
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
@@ -68,6 +69,7 @@ from account.forms import RegistrationForm, AccountAuthenticationForm, AccountUp
 from account.forms import AccountCasForm, AcademyForm, ResearchForm, PrestsForm, PresentPostForm,TeachingExpForm, OrientationForm
 
 global pk_var
+
 
 """
 # Configure the Bengali font in DEFAULT_FONT_CONFIG
@@ -1011,6 +1013,13 @@ def self_view(request, *args, **kwargs):
         context['ac_post_reg_count'] = ac_post_reg_count
         context['ac_frm_submitted'] = ac_frm_submitted
         
+        for acts in account:
+            match = re.match(r".*_\d+$", acts.username)  # Check if it ends with "_number"
+            acts.has_suffix = bool(match)  # True if it has a suffix, False otherwise
+
+        context = {
+            'account': account  # Pass modified queryset
+        }
 
         context['pk_var'] = pk_var
         context['admin'] = admin
@@ -1213,7 +1222,7 @@ def self_view(request, *args, **kwargs):
             return render(request, "account/cas_view2.html", context)
         
     
-    if not user.is_applicant:       
+    if not user.is_applicant:              
         return render(request, "account/cas_view_admin.html", context)
     else:
         return render(request, "account/cas_view.html", context)
@@ -2403,21 +2412,43 @@ def generate_pdf(request):
 
 
 def generate_unique_username(base_username):
+    # Try to match the pattern of username with suffix `_number`
+    match = re.match(r"(.*_)(\d+)$", base_username)
+
+    if match:  
+        base_name = match.group(1)  # Extract actual username without the suffix
+        has_suffix = base_name.endswith("_")
+    else:
+        base_name = base_username  # Keep original if no match
+        has_suffix = False  # No suffix
+
     counter = 1
-    new_username = f"{base_username}_{counter}"
+    new_username = f"{base_name}{counter if has_suffix else f'_{counter}'}"
+
     while Account.objects.filter(username=new_username).exists():
         counter += 1
-        new_username = f"{base_username}_{counter}"
-    return new_username
+        new_username = f"{base_name}{counter if has_suffix else f'_{counter}'}"
 
+    return new_username
+    
 def generate_unique_email(base_email):
-    hostname = base_email.split('@')[0]
     domain = "jadavpuruniversity.in"
+
+    # Extract the hostname before '@'
+    match = re.match(r"^(.*?)(?:_(\d+))?@.+$", base_email)
+
+    if match:
+        base_hostname = match.group(1)  # Extract actual hostname without suffix
+    else:
+        base_hostname = base_email.split('@')[0]  # Fallback
+
     counter = 1
-    new_email = f"{hostname}_{counter}@{domain}"
+    new_email = f"{base_hostname}_{counter}@{domain}"
+
     while Account.objects.filter(email=new_email).exists():
         counter += 1
-        new_email = f"{hostname}_{counter}@{domain}"
+        new_email = f"{base_hostname}_{counter}@{domain}"
+
     return new_email
 
 def generate_unique_emp_id():
@@ -2442,3 +2473,4 @@ def update_account_fields(request, user_id):
     account.save()
     return redirect("logout")
     #return redirect("success_page")  # Redirect after update
+ 

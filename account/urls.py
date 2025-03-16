@@ -36,7 +36,7 @@ from account.views import (
     faculy_summary,
     #error_500,
     generate_pdf,
-   
+    
    
     
 )
