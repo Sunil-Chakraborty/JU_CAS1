@@ -1,0 +1,648 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	
+	
+    <meta charset="UTF-8">
+	
+	<style>
+		
+		* {
+			font-family: 'NotoSansBengali', Arial, sans-serif;
+			box-sizing: border-box;
+		}
+		
+        @page {
+            size: A4 landscape;  /* Landscape: 40cm wide, 21cm tall */
+            margin-top: 10mm; /* Adjust the top margin as needed */
+			margin-left: 15mm; /* Adjust the left margin as needed */
+			margin-right: 15mm; /* Adjust the right margin as needed */
+			margin-bottom: 10mm; /* Adjust the bottom margin as needed */
+				
+			@bottom-center {
+				content: "Page " counter(page) " of " counter(pages);  /* Page numbering */
+				font-size: 12px;
+				color: #000;
+				text-align: center;
+			}
+            @frame header_frame {
+                left: 50pt;
+                width: 512pt;
+                top: 10pt;
+                height: 950pt;
+            }
+            @frame content_frame {
+                left: 30pt;
+                width: 512pt;
+                top: 100pt;
+                height: 660pt;
+            }
+            @frame footer_frame {
+                left: 50pt;
+                width: 470pt;
+                top: 770pt;
+                height: 40pt;
+            }
+        }
+		
+		@page portrait {
+			size: A4;
+		}
+
+		@page landscape {
+			size: A4 landscape;
+		}
+
+		.portrait {
+			page: portrait;
+		}
+
+		.landscape {
+			page: landscape;
+		}
+		
+		html {
+			counter-reset: page;  /* Initialize the page counter */
+		}
+        @font-face {
+            font-family: 'NotoSansBengali';
+            src: url("{% static 'font/NotoSansBengali-Bold.ttf' %}") format('truetype');
+        }
+
+        html , body {
+            font-family: 'NotoSansBengali', Arial, sans-serif;
+            font-size: 12px;
+			max-width: 100%;  /* Ensure content fits within the page */
+            overflow: hidden; /* Prevent overflow */
+            box-sizing: border-box;
+			
+        }
+		.page-break {
+            break-before: always;  /* Forces the next content to appear on a new page */
+        }
+       .page-break-after {
+			break-after: always;  /* Forces the page break after the current content */
+		}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+			table-layout: fixed;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 5px;
+            text-align: left;
+			
+        }
+		
+		td {
+			word-wrap: break-word;       /* Break long words to the next line */
+			white-space: normal;         /* Allow text to wrap naturally */
+			overflow-wrap: break-word;   /* Ensure the text doesn't overflow the cell */
+			
+		}
+		
+        .box3 {
+            font-family: 'NotoSansBengali', Arial, sans-serif;
+        }
+
+        
+		
+		@page jrnl_pub {
+			size: A4 landscape; /* Correct setting for A4 landscape */
+			margin: 0.8cm;      /* Set page margins */
+			
+			/* Define footer placement */
+			@bottom-center {
+				content: element(footer_content); /* Reference the footer */
+				width: 100%;                      /* Full width of the page */
+				text-align: center;                /* Center the footer content */
+				margin-top: 5pt;                   /* Adjust margin to avoid overlapping */
+			}
+		}
+		
+		/* Footer styling */
+		#footer_content {
+			position: running(footer_content);  /* Make the footer content reusable */
+			font-size: 12px;                    /* Adjust font size if needed */
+			color: #000;                        /* Set footer text color */
+			width: 100%;
+			text-align: center;
+		}
+
+		
+		@page api_summ {
+			size: A4 portrait;
+			@frame content_frame {
+				left: 30pt;
+				width: 512pt;
+				top: 70pt;
+				height: 660pt; /* Adjust the height to fit the page */
+			}
+		}
+
+		@page fwd_link {
+			size: A4 portrait;  /* A4 size in portrait orientation */
+			
+			@top-left {
+				content: element(header_content);  /* Replacing static frame with top-left region */
+			}
+			
+			@bottom-left {
+				content: element(footer_content);  /* Replacing static frame with bottom-left region */
+			}
+
+			margin: 1cm;  /* General page margin */
+			
+			@frame content_frame {
+				left: 30pt;
+				width: 512pt;
+				top: 70pt;
+				height: 660pt;
+			}
+		}
+
+		/* Table and content styling */
+		th {
+			text-align: left;
+			vertical-align: middle;
+			font-size: 12px;
+			text-decoration: none;
+			width: auto;
+		}
+		td.box { 
+			text-align: left;			
+			font-size: 12px;
+			text-decoration: none;
+			width: auto;			
+			
+			
+			
+		}
+		.wd {
+			width: 10%;
+		}
+
+		.alert {
+			color: red;
+		}
+
+		th.sub {
+			width: 30%;
+		}
+
+		th.marks, th.year, td.marks, td.year {
+			width: 11%;
+			text-align: center;
+		}
+
+		.content-loader tr td {
+			white-space: nowrap;
+		}
+
+		.centered {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		.no-display {
+			display: none;
+		}
+
+		.spinner-container {
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			z-index: -1;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.spinner-container .fa {
+			font-size: 60px;
+		}
+		h1 {
+			font-size: 1.5em; /* Relative to body font-size */
+		}
+
+		h2 {
+			font-size: 1.2em;
+		}	
+
+		.content-frame {
+			overflow: hidden; /* Prevents content from overflowing */
+			max-height: 100%; /* Limit height to prevent overflowing */
+		}
+		input, textarea, div {
+			padding: 4px 8px; /* Reduce padding */
+			margin: 2px 0; /* Reduce margin */
+		}
+		.element {
+			max-width: 100%; /* Prevent elements from exceeding page width */
+		}
+		.content {
+            width: 100%;      /* Full width */
+            max-width: 100%;  /* Prevent overflow */
+            margin: 0;        /* Reset margin */
+            padding: 0;       /* Reset padding */
+            font-family: Arial, sans-serif;
+        }
+		tr {
+		   page-break-inside: avoid;
+		
+		}
+		
+		@media print {
+			.table-container {
+				overflow: visible !important;
+			}
+		}
+		
+    </style>
+</head>
+
+    
+    <body>
+	  <div class="portrait">
+        <!-- Content for Static Frame 'header_frame' -->
+        <div id="header_content" style="text-align: center;" >
+			<!-- Logo centered inside a container 
+			<img src="http://192.168.191.103:8000/static/images/ju_logo.png" style="width:60px;text-align:center;"> -->
+			<img src="http://localhost:8000/static/images/ju_logo.png" style="width:60px; display: block; margin: 0 auto;">
+
+			
+		  	<!-- Title centered under the logo -->
+			<h3 style="text-align: center;">
+				JADAVPUR UNIVERSITY
+				<br> KOLKATA - 700032               
+				<br>
+			</h3>
+			
+		</div>
+
+		
+		<!-- Footer Content -->
+		<div id="footer_content" style="text-align: center;">
+			(c) - Page 
+		</div>
+		
+	
+        <table  class="portrait" width="100%" border="1" cellspacing="0" cellpadding="5">
+			
+           	<tr>
+                <th class="box">Full Name</th>
+                <td class="box">{{username}}</td>
+            </tr>
+			<tr>
+                <th class="box">Stage/Designation from:</th>
+                <td class="box">{{from_dsg}}</td>
+            </tr>
+			<tr>
+                <th class="box">Stage/Designation to:</th>
+                <td class="box">{{to_dsg}}</td>
+            </tr>
+			<tr>
+                <th class="box">Date of last promotion , if any</th>
+                <td class="box">{{dt_last_promo|date:"d-m-Y"}}</td>	
+            </tr>
+			<tr>
+                <th class="box">Date of eligibility for promotion</th>
+                <td class="box">{{dt_eligibility|date:"d-m-Y"}}</td>
+            </tr>
+			<tr>
+				<th>Assessment Period (in years)</th>
+				<td class="box">{{ass_yr}}</td>				
+            <tr>
+            
+        </table>
+		<br>
+		<br>
+		<hr style="height: 5px; background-color: black; border: none;">
+		<br>
+		<br>
+		<h1 style="text-align:left;font-size:15px"> API CATEGORY : I. TEACHING, LEARNING AND EVALUATION RELATED ACTIVITIES
+            </h1>
+
+            <table class="content-loader" width="100%" border="1" cellspacing="0" cellpadding="5">
+				
+				<tr >
+					<th style="width:7%;">Sl.No.</th>
+					<th>Nature of Activity</th>
+					
+					<th style="text-align:center;width:15%;">Self Appraisal Score</th> 
+								
+					<th style="text-align:center;">Verified API Score</th>					
+					
+					<th>Comment(if any)</th>
+					
+				</tr> 
+				<tr style="height: 150px;" >
+					<td>1.</td>
+					<td>Direct Teaching<br>(self declaration)</td>					
+					<td style="text-align:center;">{{api1.self_api_dt}}</td>					
+					<td></td>
+					<td></td>
+				</tr>
+				<tr style="height: 150px;" >
+					<td>2.</td>
+					<td style="tex-align:left;word-break: break-all; word-wrap: break-word; white-space: normal;">Examination duties<br>(question paper setting,<br> Invigilation, evaluation of <br> answer scripts etc.)<br> (self declaration)</td>
+					<td style="text-align:center;">{{api1.self_api_ed}}</td>
+					<td></td>
+					<td></td>
+					
+				</tr>
+				<tr style="height: 150px;" >
+					<td>3.</td>
+					<td style="tex-align:left;word-break: break-all; word-wrap: break-word; white-space: normal;">Innovative Teaching-<br>learning methodologies,
+						<br> updating of subject <br> contents/courses, mentoring etc.
+						<br>(self declaration)
+					</td>					
+					<td style="text-align:center;">{{api1.self_api_it}}</td>
+					<td></td>
+					<td></td>
+					
+				</tr>
+				<tr>
+					<td style="font-weight:bold;">Total</td>
+					<td></td>					
+					<td style="text-align:center;font-weight:bold;">{{api_1}}</td>
+					<td></td>
+					<td></td>
+				</tr>	
+			</table>
+
+		<div class="page-break"></div>
+        
+		<br>
+		<br>
+		
+            <h1 style="text-align:left;font-size:15px">CATEGORY II: PROFESSIONAL DEVELOPMENT, CO-CURRICULAR AND EXTENSION ACTIVITIES
+            </h1>
+			<table repeat="1" class="content-loader" width="100%" border="1" cellspacing="0" cellpadding="5">
+			<tr>
+				<th style="width:35%;">Nature of Activity</th>
+				
+				<th style="text-align:center;">Self Appraisal Score</th>
+						
+				<th style="text-align:center;">Verified API Score</th>					
+					
+				
+				<th style="text-align:center;">Comment <br>(if any)</th>
+				
+			</tr>
+			<tr style="height: 220px;">
+				<td style="tex-align:left;word-break: break-all; word-wrap: break-word; white-space: normal;">a). Student related co-curricular, extension and field based activities.
+				(i) Discipline related co-curricular activities (e.g.remedial classes,career counseling,study visit,student seminar and other events.)
+				(ii) Other co-curricular activities(Cultural, Sports, NSS, NCC etc.).Extension and dissemination activities (public /popular lectures/talks/seminars etc.)
+						
+				</td>							
+				<td style="text-align:center;">{{api2.self_api_fba}}</td>
+				
+				<td></td>
+				<td></td>
+				
+			</tr>
+			<tr style="height: 220px;">
+				<td style="tex-align:left;word-break: break-all; word-wrap: break-word; white-space: normal;">b). Contribution to corporate life and management of the department and institution through participation in academic and administrative committees and responsibilities.		
+							  i). Administrative responsibility (including as Dean / Principal / Chairperson / Convener / Teacher-in-charge/  similar other duties that require regular office hrs for  its discharge)		
+							 ii). Participation in Board of Studies, Academic and Administrative Committees
+								  (Self declaration)				
+					
+				</td>
+								
+				<td style="text-align:center;">{{api2.self_api_clm}}</td>
+				
+				<td></td>
+				<td></td>
+				
+			</tr>
+			<tr style="height: 220px;">
+				<td style="tex-align:left;word-break: break-all; word-wrap: break-word; white-space: normal;">c.) Professional Development activities (such as participation in seminars, conferences, short term training courses, industrial experience, talks, lectures in refreshers/faculty development courses, dissemination and general articles and any other contribution			
+						
+				</td>
+							
+				<td style="text-align:center;">{{api2.self_api_pda}}</td>				
+				
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+					<td style="font-weight:bold;">Total</td>
+					
+								
+					<td style="text-align:center;font-weight:bold;">{{api_2}}</td>
+					<td></td>
+					<td></td>
+			</tr>
+			</table>
+			
+			<br>
+       
+
+		<div class="page-break"></div>
+
+		<h1 style="text-align:left;font-size:15px"> CATEGORY III: Research and Academic Contribution
+            </h1>
+			<h2 style="text-align:left;font-size:14px">III-A : Journal Publication</h2>
+			
+			<table  class="content-loader" width="100%" border="1" cellspacing="0" cellpadding="5">
+					
+				<thead>
+					<tr> 
+						<th style="width:8%;">Sl.<br>No.</th>
+						<th style="text-align:center;">Self <br>Appraisal <br>Score</th>								
+						<th style="text-align:center;">Verified<br> API<br> Score</th>					
+						<th>Comment(if any)</th>
+					</tr>
+				</thead>	
+
+			{% for item in jrnl %}
+				{% if item.yr_pub %}
+					<tr style="height: 50px;">
+						<td style="display:none;">{{form.email}}</td>             
+						<td>{{ forloop.counter }}</td>
+						<td id="api_score" style="text-align:center;">{{item.self_api_score|default_if_none:"Blank"}}</td>
+						<td></td>
+						<td></td>
+						
+				{% endif %}
+				
+			{% endfor %}
+			<tr>
+					
+									
+					<td style="font-weight:bold;">Total</td>					
+					<td style="text-align:center;font-weight:bold;">{{tot_3a.self_api_score__sum}}</td>
+					<td></td>
+					<td></td>
+			</tr>
+			</table>
+			
+			<br>
+			<br>
+			
+			<h2 style="text-align:left;font-size:14px">III-B(i): Publications other than journal articles</h2>
+			<table class="content-loader" width="100%" border="1" cellspacing="0" cellpadding="5">
+					<thead>	
+						<tr>
+							
+							<th style="width:8%;">Sl.<br>No.</th>
+							<th style="text-align:center;">Self <br>Appraisal <br>Score</th>
+								
+							<th style="text-align:center;">Verified <br> API<br> Score</th>					
+							<th>Comment(if any)</th>
+							
+						</tr>
+					</thead>	
+					{% for item in pub %}
+					
+						{% if item.yr_pub %}
+						<tr style="height: 50px;">
+							<td style="display:none;">{{form.email}}</td>             
+							<td>{{ forloop.counter }}</td>
+								
+							<td style="text-align:center;">{{item.self_api_score|default_if_none:"Blank"}}</td>
+							
+							<td style="width:5%;text-align:center;"></td>
+							<td></td>
+						</tr>
+						{% endif %}
+						
+					{% endfor %}
+					<tr>
+							<td style="font-weight:bold;">Total</td>									
+							<td style="text-align:center;font-weight:bold;">{{tot_3b.self_api_score__sum}}</td>
+							<td></td>
+							<td></td>
+					</tr>
+					
+			</table>
+			<br>
+			<div class="page-break"></div>
+			
+						
+			<br>
+			 
+			<h2 style="text-align:left;font-size:14px">III-D:  Research Guidance</h2>
+			
+			<table repeat="1" class="content-loader" width="100%" border="1" cellspacing="0" cellpadding="5">
+				
+				<thead>
+				
+					<tr>							
+							<th style="width:8%;">Sl.<br>No.</th>
+							<th style="text-align:center;">Self <br>Appraisal <br>Score</th>
+								
+							<th style="text-align:center;">Verified <br> API<br> Score</th>					
+							<th>Comment(if any)</th>
+							
+					</tr>
+					
+					
+				</thead>
+				
+			{% for item in res_guide %}
+				{% if item.student_name %}
+					  <tr style="height: 50px;">
+						<td style="display:none;">{{form.email}}</td>
+						<td>{{ forloop.counter }}</td>
+						<td style="text-align: center;">{{item.self_api_score|default_if_none:"Blank"}}</td>
+						<td></td>
+						<td></td>
+				  
+					</tr>
+				{% endif %}
+			{% endfor %}
+					<tr style="height: 50px;">
+							<td style="text-align:center;font-weight:bold;">Total</td>									
+							<td style="text-align:center;font-weight:bold;">{{tot_3f.self_api_score__sum}}</td>
+							<td></td>
+							<td></td>
+					</tr>
+					
+			</table>
+			
+			<br>
+			<div class="page-break"></div>
+			
+			
+
+				<div style="background-color: teal; color:white !important; padding: 5px 0;">
+					<h2 style="text-align: center; font-size: 20px; margin: 0; padding-top: 3px;">API Score Summary</h2>
+				</div>
+				<br> <br>
+				<table  class="content-loader" width="80%" align="center" border="1" cellspacing="0" cellpadding="5" >
+					<tr>
+						<th style="text-align:center;">Category</th>
+						<th>Period</th>
+						<th style="text-align: center;">Self Appraisal<br> Score</th>
+						
+						
+						<th style="text-align:center;">Status </th>
+					</tr>
+					
+				<!-- API Catg-I -->
+				
+				<tr>
+					<td style="text-align:center;">I</td>
+					<td>Yearly</td>
+					<td id="api1" style="text-align:center;">{{api_1}}</td>
+					<td id="api3" style="text-align:center;">{{api_sts1}}</td>
+					
+				</tr>
+				<tr>
+					<td style="text-align:center;">II</td>
+					<td>Assessment Period</td>
+					<td id="api1" style="text-align:center;">{{api_2a}}</td>
+					<td id="api3" style="text-align:center;">{{api2_sts}}</td>
+					
+				</tr>	
+				<tr>
+					<td style="text-align:center;">III</td>
+					<td>Assessment Period</td>
+					<td id="api1" style="text-align:center;">{{tot_3}}</td>
+					<td id="api3" style="text-align:center;">{{tot_sts3}}</td>
+					
+				</tr>
+				<tr>
+					<td style="text-align:center;">II + III</td>
+					<td>Assessment Period</td>
+					<td id="api1" style="text-align:center;">{{tot_2_3}}</td>
+					<td id="api3" style="text-align:center;">{{tot_sts3}}</td>
+					
+				</tr>
+				
+				</table>
+				
+
+			
+		 
+				<br>
+				<br>
+				<p><strong>Additional Comments:</strong></p>
+				
+				<div style="width: 100%; height: 200px; border: 1px solid black; padding: 10px; font-size: 14px;">
+   
+				</div>
+				<br>
+				<br>
+				<p style="letter-spacing:1px;" >Signature of Committee Members:</p>
+			
+			
+			</div> <!-- End Potrait -->
+			
+			
+	</body>
+	
+	
+    </html>

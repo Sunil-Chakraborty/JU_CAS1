@@ -6,7 +6,7 @@ from account.views import (
 	#account_view,
     edit_account_view,
     update_account_fields,
-    cas_view,
+    cas_view,    
     academy_view,
     professional_view,
     teaching_view,    

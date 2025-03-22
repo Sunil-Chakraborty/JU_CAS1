@@ -70,6 +70,8 @@ from account.forms import AccountCasForm, AcademyForm, ResearchForm, PrestsForm,
 
 global pk_var
 
+import json
+
 
 """
 # Configure the Bengali font in DEFAULT_FONT_CONFIG
@@ -272,9 +274,10 @@ class NoticeView(TemplateView):
 class InstructionView(TemplateView):
     template_name = "account/Instruction.html"
 
-class ViewPDF(View):
+class ViewPDF(View):    
     
 	def get(self, request, *args, **kwargs):
+    
             user_id = kwargs.get("user_id")
 
             user = request.user
@@ -649,7 +652,15 @@ class ViewPDF(View):
                         
                         department_name = account.Department.name
                         
-                        pdf = render_to_pdf('account/pdf_template4.html', context)  # For Bengali and others template
+                        checked = request.GET.get('checked', 'false').lower()  # Get 'checked' parameter from URL
+        
+                        if checked == 'true':  
+                            pdf = render_to_pdf('account/pdf_admin.html', context)
+                        else:
+                            pdf = render_to_pdf('account/pdf_template4.html', context)  # Bengali/Other template
+                        
+                        
+                        
                         
                         """
                         if department_name == "BENGALI":                           
@@ -994,7 +1005,7 @@ def self_view(request, *args, **kwargs):
         # IDs to exclude
         #exclude_ids = [1, 11, 25]
         
-        exclude_ids = [1,  25]
+        exclude_ids = [1, ]
         # Query to retrieve all Account objects ordered by username, excluding specific IDs
         account = Account.objects.all().exclude(id__in=exclude_ids).order_by('username')
         
@@ -2473,4 +2484,4 @@ def update_account_fields(request, user_id):
     account.save()
     return redirect("logout")
     #return redirect("success_page")  # Redirect after update
- 
+
